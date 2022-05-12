@@ -1,0 +1,1564 @@
+<?xml version="1.0" encoding="ISO-8859-1" standalone="no"?>
+<archive xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="integrated.jsimg" timestamp="Tue May 03 12:45:57 CEST 2022" xsi:noNamespaceSchemaLocation="Archive.xsd">
+    <sim disableStatisticStop="false" logDecimalSeparator="." logDelimiter="," logPath="/home/riccardo/JMT" logReplaceMode="0" maxEvents="-1" maxSamples="10000000" name="integrated.jsimg" polling="1.0" xsi:noNamespaceSchemaLocation="SIMmodeldefinition.xsd">
+        <userClass customers="100" name="Low" priority="0" referenceSource="Start" type="closed"/>
+        <userClass customers="0" name="High" priority="0" referenceSource="Start" type="closed"/>
+        <userClass name="Token" priority="0" referenceSource="Transition" type="open"/>
+        <node name="Start">
+            <section className="Storage">
+                <parameter classPath="java.lang.Integer" name="totalCapacity">
+                    <value>-1</value>
+                </parameter>
+                <parameter array="true" classPath="java.lang.Integer" name="capacities">
+                    <refClass>Low</refClass>
+                    <subParameter classPath="java.lang.Integer" name="capacity">
+                        <value>-1</value>
+                    </subParameter>
+                    <refClass>High</refClass>
+                    <subParameter classPath="java.lang.Integer" name="capacity">
+                        <value>-1</value>
+                    </subParameter>
+                    <refClass>Token</refClass>
+                    <subParameter classPath="java.lang.Integer" name="capacity">
+                        <value>-1</value>
+                    </subParameter>
+                </parameter>
+                <parameter array="true" classPath="java.lang.String" name="dropRules">
+                    <refClass>Low</refClass>
+                    <subParameter classPath="java.lang.String" name="dropRule">
+                        <value>drop</value>
+                    </subParameter>
+                    <refClass>High</refClass>
+                    <subParameter classPath="java.lang.String" name="dropRule">
+                        <value>drop</value>
+                    </subParameter>
+                    <refClass>Token</refClass>
+                    <subParameter classPath="java.lang.String" name="dropRule">
+                        <value>drop</value>
+                    </subParameter>
+                </parameter>
+                <parameter classPath="jmt.engine.NetStrategies.QueueGetStrategies.FCFSstrategy" name="getStrategy"/>
+                <parameter array="true" classPath="jmt.engine.NetStrategies.QueuePutStrategy" name="putStrategies">
+                    <refClass>Low</refClass>
+                    <subParameter classPath="jmt.engine.NetStrategies.QueuePutStrategies.TailStrategy" name="putStrategy"/>
+                    <refClass>High</refClass>
+                    <subParameter classPath="jmt.engine.NetStrategies.QueuePutStrategies.TailStrategy" name="putStrategy"/>
+                    <refClass>Token</refClass>
+                    <subParameter classPath="jmt.engine.NetStrategies.QueuePutStrategies.TailStrategy" name="putStrategy"/>
+                </parameter>
+            </section>
+            <section className="ServiceTunnel"/>
+            <section className="Linkage"/>
+        </node>
+        <node name="Delay">
+            <section className="Enabling">
+                <parameter array="true" classPath="jmt.engine.NetStrategies.TransitionUtilities.TransitionMatrix" name="enablingConditions">
+                    <subParameter classPath="jmt.engine.NetStrategies.TransitionUtilities.TransitionMatrix" name="enablingCondition">
+                        <subParameter array="true" classPath="jmt.engine.NetStrategies.TransitionUtilities.TransitionVector" name="enablingVectors">
+                            <subParameter classPath="jmt.engine.NetStrategies.TransitionUtilities.TransitionVector" name="enablingVector">
+                                <subParameter classPath="java.lang.String" name="stationName">
+                                    <value>Start</value>
+                                </subParameter>
+                                <subParameter array="true" classPath="java.lang.Integer" name="enablingEntries">
+                                    <refClass>Low</refClass>
+                                    <subParameter classPath="java.lang.Integer" name="enablingEntry">
+                                        <value>1</value>
+                                    </subParameter>
+                                    <refClass>High</refClass>
+                                    <subParameter classPath="java.lang.Integer" name="enablingEntry">
+                                        <value>0</value>
+                                    </subParameter>
+                                    <refClass>Token</refClass>
+                                    <subParameter classPath="java.lang.Integer" name="enablingEntry">
+                                        <value>0</value>
+                                    </subParameter>
+                                </subParameter>
+                            </subParameter>
+                        </subParameter>
+                    </subParameter>
+                    <subParameter classPath="jmt.engine.NetStrategies.TransitionUtilities.TransitionMatrix" name="enablingCondition">
+                        <subParameter array="true" classPath="jmt.engine.NetStrategies.TransitionUtilities.TransitionVector" name="enablingVectors">
+                            <subParameter classPath="jmt.engine.NetStrategies.TransitionUtilities.TransitionVector" name="enablingVector">
+                                <subParameter classPath="java.lang.String" name="stationName">
+                                    <value>Start</value>
+                                </subParameter>
+                                <subParameter array="true" classPath="java.lang.Integer" name="enablingEntries">
+                                    <refClass>Low</refClass>
+                                    <subParameter classPath="java.lang.Integer" name="enablingEntry">
+                                        <value>0</value>
+                                    </subParameter>
+                                    <refClass>High</refClass>
+                                    <subParameter classPath="java.lang.Integer" name="enablingEntry">
+                                        <value>1</value>
+                                    </subParameter>
+                                    <refClass>Token</refClass>
+                                    <subParameter classPath="java.lang.Integer" name="enablingEntry">
+                                        <value>0</value>
+                                    </subParameter>
+                                </subParameter>
+                            </subParameter>
+                        </subParameter>
+                    </subParameter>
+                </parameter>
+                <parameter array="true" classPath="jmt.engine.NetStrategies.TransitionUtilities.TransitionMatrix" name="inhibitingConditions">
+                    <subParameter classPath="jmt.engine.NetStrategies.TransitionUtilities.TransitionMatrix" name="inhibitingCondition">
+                        <subParameter array="true" classPath="jmt.engine.NetStrategies.TransitionUtilities.TransitionVector" name="inhibitingVectors">
+                            <subParameter classPath="jmt.engine.NetStrategies.TransitionUtilities.TransitionVector" name="inhibitingVector">
+                                <subParameter classPath="java.lang.String" name="stationName">
+                                    <value>Start</value>
+                                </subParameter>
+                                <subParameter array="true" classPath="java.lang.Integer" name="inhibitingEntries">
+                                    <refClass>Low</refClass>
+                                    <subParameter classPath="java.lang.Integer" name="inhibitingEntry">
+                                        <value>0</value>
+                                    </subParameter>
+                                    <refClass>High</refClass>
+                                    <subParameter classPath="java.lang.Integer" name="inhibitingEntry">
+                                        <value>0</value>
+                                    </subParameter>
+                                    <refClass>Token</refClass>
+                                    <subParameter classPath="java.lang.Integer" name="inhibitingEntry">
+                                        <value>0</value>
+                                    </subParameter>
+                                </subParameter>
+                            </subParameter>
+                        </subParameter>
+                    </subParameter>
+                    <subParameter classPath="jmt.engine.NetStrategies.TransitionUtilities.TransitionMatrix" name="inhibitingCondition">
+                        <subParameter array="true" classPath="jmt.engine.NetStrategies.TransitionUtilities.TransitionVector" name="inhibitingVectors">
+                            <subParameter classPath="jmt.engine.NetStrategies.TransitionUtilities.TransitionVector" name="inhibitingVector">
+                                <subParameter classPath="java.lang.String" name="stationName">
+                                    <value>Start</value>
+                                </subParameter>
+                                <subParameter array="true" classPath="java.lang.Integer" name="inhibitingEntries">
+                                    <refClass>Low</refClass>
+                                    <subParameter classPath="java.lang.Integer" name="inhibitingEntry">
+                                        <value>0</value>
+                                    </subParameter>
+                                    <refClass>High</refClass>
+                                    <subParameter classPath="java.lang.Integer" name="inhibitingEntry">
+                                        <value>0</value>
+                                    </subParameter>
+                                    <refClass>Token</refClass>
+                                    <subParameter classPath="java.lang.Integer" name="inhibitingEntry">
+                                        <value>0</value>
+                                    </subParameter>
+                                </subParameter>
+                            </subParameter>
+                        </subParameter>
+                    </subParameter>
+                </parameter>
+            </section>
+            <section className="Timing">
+                <parameter array="true" classPath="java.lang.String" name="modeNames">
+                    <subParameter classPath="java.lang.String" name="modeName">
+                        <value>Mode1</value>
+                    </subParameter>
+                    <subParameter classPath="java.lang.String" name="modeName">
+                        <value>Mode2</value>
+                    </subParameter>
+                </parameter>
+                <parameter array="true" classPath="java.lang.Integer" name="numbersOfServers">
+                    <subParameter classPath="java.lang.Integer" name="numberOfServers">
+                        <value>-1</value>
+                    </subParameter>
+                    <subParameter classPath="java.lang.Integer" name="numberOfServers">
+                        <value>-1</value>
+                    </subParameter>
+                </parameter>
+                <parameter array="true" classPath="jmt.engine.NetStrategies.ServiceStrategy" name="timingStrategies">
+                    <subParameter classPath="jmt.engine.NetStrategies.ServiceStrategies.ServiceTimeStrategy" name="timingStrategy">
+                        <subParameter classPath="jmt.engine.random.Exponential" name="Exponential"/>
+                        <subParameter classPath="jmt.engine.random.ExponentialPar" name="distrPar">
+                            <subParameter classPath="java.lang.Double" name="lambda">
+                                <value>10.0</value>
+                            </subParameter>
+                        </subParameter>
+                    </subParameter>
+                    <subParameter classPath="jmt.engine.NetStrategies.ServiceStrategies.ServiceTimeStrategy" name="timingStrategy">
+                        <subParameter classPath="jmt.engine.random.Exponential" name="Exponential"/>
+                        <subParameter classPath="jmt.engine.random.ExponentialPar" name="distrPar">
+                            <subParameter classPath="java.lang.Double" name="lambda">
+                                <value>10.0</value>
+                            </subParameter>
+                        </subParameter>
+                    </subParameter>
+                </parameter>
+                <parameter array="true" classPath="java.lang.Integer" name="firingPriorities">
+                    <subParameter classPath="java.lang.Integer" name="firingPriority">
+                        <value>-1</value>
+                    </subParameter>
+                    <subParameter classPath="java.lang.Integer" name="firingPriority">
+                        <value>-1</value>
+                    </subParameter>
+                </parameter>
+                <parameter array="true" classPath="java.lang.Double" name="firingWeights">
+                    <subParameter classPath="java.lang.Double" name="firingWeight">
+                        <value>1.0</value>
+                    </subParameter>
+                    <subParameter classPath="java.lang.Double" name="firingWeight">
+                        <value>1.0</value>
+                    </subParameter>
+                </parameter>
+            </section>
+            <section className="Firing">
+                <parameter array="true" classPath="jmt.engine.NetStrategies.TransitionUtilities.TransitionMatrix" name="firingOutcomes">
+                    <subParameter classPath="jmt.engine.NetStrategies.TransitionUtilities.TransitionMatrix" name="firingOutcome">
+                        <subParameter array="true" classPath="jmt.engine.NetStrategies.TransitionUtilities.TransitionVector" name="firingVectors">
+                            <subParameter classPath="jmt.engine.NetStrategies.TransitionUtilities.TransitionVector" name="firingVector">
+                                <subParameter classPath="java.lang.String" name="stationName">
+                                    <value>Sensors</value>
+                                </subParameter>
+                                <subParameter array="true" classPath="java.lang.Integer" name="firingEntries">
+                                    <refClass>Low</refClass>
+                                    <subParameter classPath="java.lang.Integer" name="firingEntry">
+                                        <value>1</value>
+                                    </subParameter>
+                                    <refClass>High</refClass>
+                                    <subParameter classPath="java.lang.Integer" name="firingEntry">
+                                        <value>0</value>
+                                    </subParameter>
+                                    <refClass>Token</refClass>
+                                    <subParameter classPath="java.lang.Integer" name="firingEntry">
+                                        <value>0</value>
+                                    </subParameter>
+                                </subParameter>
+                            </subParameter>
+                        </subParameter>
+                    </subParameter>
+                    <subParameter classPath="jmt.engine.NetStrategies.TransitionUtilities.TransitionMatrix" name="firingOutcome">
+                        <subParameter array="true" classPath="jmt.engine.NetStrategies.TransitionUtilities.TransitionVector" name="firingVectors">
+                            <subParameter classPath="jmt.engine.NetStrategies.TransitionUtilities.TransitionVector" name="firingVector">
+                                <subParameter classPath="java.lang.String" name="stationName">
+                                    <value>Sensors</value>
+                                </subParameter>
+                                <subParameter array="true" classPath="java.lang.Integer" name="firingEntries">
+                                    <refClass>Low</refClass>
+                                    <subParameter classPath="java.lang.Integer" name="firingEntry">
+                                        <value>0</value>
+                                    </subParameter>
+                                    <refClass>High</refClass>
+                                    <subParameter classPath="java.lang.Integer" name="firingEntry">
+                                        <value>1</value>
+                                    </subParameter>
+                                    <refClass>Token</refClass>
+                                    <subParameter classPath="java.lang.Integer" name="firingEntry">
+                                        <value>0</value>
+                                    </subParameter>
+                                </subParameter>
+                            </subParameter>
+                        </subParameter>
+                    </subParameter>
+                </parameter>
+            </section>
+        </node>
+        <node name="Sampling">
+            <section className="Enabling">
+                <parameter array="true" classPath="jmt.engine.NetStrategies.TransitionUtilities.TransitionMatrix" name="enablingConditions">
+                    <subParameter classPath="jmt.engine.NetStrategies.TransitionUtilities.TransitionMatrix" name="enablingCondition">
+                        <subParameter array="true" classPath="jmt.engine.NetStrategies.TransitionUtilities.TransitionVector" name="enablingVectors">
+                            <subParameter classPath="jmt.engine.NetStrategies.TransitionUtilities.TransitionVector" name="enablingVector">
+                                <subParameter classPath="java.lang.String" name="stationName">
+                                    <value>Place 5</value>
+                                </subParameter>
+                                <subParameter array="true" classPath="java.lang.Integer" name="enablingEntries">
+                                    <refClass>Low</refClass>
+                                    <subParameter classPath="java.lang.Integer" name="enablingEntry">
+                                        <value>1</value>
+                                    </subParameter>
+                                    <refClass>High</refClass>
+                                    <subParameter classPath="java.lang.Integer" name="enablingEntry">
+                                        <value>0</value>
+                                    </subParameter>
+                                    <refClass>Token</refClass>
+                                    <subParameter classPath="java.lang.Integer" name="enablingEntry">
+                                        <value>0</value>
+                                    </subParameter>
+                                </subParameter>
+                            </subParameter>
+                        </subParameter>
+                    </subParameter>
+                    <subParameter classPath="jmt.engine.NetStrategies.TransitionUtilities.TransitionMatrix" name="enablingCondition">
+                        <subParameter array="true" classPath="jmt.engine.NetStrategies.TransitionUtilities.TransitionVector" name="enablingVectors">
+                            <subParameter classPath="jmt.engine.NetStrategies.TransitionUtilities.TransitionVector" name="enablingVector">
+                                <subParameter classPath="java.lang.String" name="stationName">
+                                    <value>Place 5</value>
+                                </subParameter>
+                                <subParameter array="true" classPath="java.lang.Integer" name="enablingEntries">
+                                    <refClass>Low</refClass>
+                                    <subParameter classPath="java.lang.Integer" name="enablingEntry">
+                                        <value>0</value>
+                                    </subParameter>
+                                    <refClass>High</refClass>
+                                    <subParameter classPath="java.lang.Integer" name="enablingEntry">
+                                        <value>1</value>
+                                    </subParameter>
+                                    <refClass>Token</refClass>
+                                    <subParameter classPath="java.lang.Integer" name="enablingEntry">
+                                        <value>0</value>
+                                    </subParameter>
+                                </subParameter>
+                            </subParameter>
+                        </subParameter>
+                    </subParameter>
+                </parameter>
+                <parameter array="true" classPath="jmt.engine.NetStrategies.TransitionUtilities.TransitionMatrix" name="inhibitingConditions">
+                    <subParameter classPath="jmt.engine.NetStrategies.TransitionUtilities.TransitionMatrix" name="inhibitingCondition">
+                        <subParameter array="true" classPath="jmt.engine.NetStrategies.TransitionUtilities.TransitionVector" name="inhibitingVectors">
+                            <subParameter classPath="jmt.engine.NetStrategies.TransitionUtilities.TransitionVector" name="inhibitingVector">
+                                <subParameter classPath="java.lang.String" name="stationName">
+                                    <value>Place 5</value>
+                                </subParameter>
+                                <subParameter array="true" classPath="java.lang.Integer" name="inhibitingEntries">
+                                    <refClass>Low</refClass>
+                                    <subParameter classPath="java.lang.Integer" name="inhibitingEntry">
+                                        <value>0</value>
+                                    </subParameter>
+                                    <refClass>High</refClass>
+                                    <subParameter classPath="java.lang.Integer" name="inhibitingEntry">
+                                        <value>0</value>
+                                    </subParameter>
+                                    <refClass>Token</refClass>
+                                    <subParameter classPath="java.lang.Integer" name="inhibitingEntry">
+                                        <value>0</value>
+                                    </subParameter>
+                                </subParameter>
+                            </subParameter>
+                        </subParameter>
+                    </subParameter>
+                    <subParameter classPath="jmt.engine.NetStrategies.TransitionUtilities.TransitionMatrix" name="inhibitingCondition">
+                        <subParameter array="true" classPath="jmt.engine.NetStrategies.TransitionUtilities.TransitionVector" name="inhibitingVectors">
+                            <subParameter classPath="jmt.engine.NetStrategies.TransitionUtilities.TransitionVector" name="inhibitingVector">
+                                <subParameter classPath="java.lang.String" name="stationName">
+                                    <value>Place 5</value>
+                                </subParameter>
+                                <subParameter array="true" classPath="java.lang.Integer" name="inhibitingEntries">
+                                    <refClass>Low</refClass>
+                                    <subParameter classPath="java.lang.Integer" name="inhibitingEntry">
+                                        <value>0</value>
+                                    </subParameter>
+                                    <refClass>High</refClass>
+                                    <subParameter classPath="java.lang.Integer" name="inhibitingEntry">
+                                        <value>0</value>
+                                    </subParameter>
+                                    <refClass>Token</refClass>
+                                    <subParameter classPath="java.lang.Integer" name="inhibitingEntry">
+                                        <value>0</value>
+                                    </subParameter>
+                                </subParameter>
+                            </subParameter>
+                        </subParameter>
+                    </subParameter>
+                </parameter>
+            </section>
+            <section className="Timing">
+                <parameter array="true" classPath="java.lang.String" name="modeNames">
+                    <subParameter classPath="java.lang.String" name="modeName">
+                        <value>Mode1</value>
+                    </subParameter>
+                    <subParameter classPath="java.lang.String" name="modeName">
+                        <value>Mode2</value>
+                    </subParameter>
+                </parameter>
+                <parameter array="true" classPath="java.lang.Integer" name="numbersOfServers">
+                    <subParameter classPath="java.lang.Integer" name="numberOfServers">
+                        <value>-1</value>
+                    </subParameter>
+                    <subParameter classPath="java.lang.Integer" name="numberOfServers">
+                        <value>-1</value>
+                    </subParameter>
+                </parameter>
+                <parameter array="true" classPath="jmt.engine.NetStrategies.ServiceStrategy" name="timingStrategies">
+                    <subParameter classPath="jmt.engine.NetStrategies.ServiceStrategies.ZeroServiceTimeStrategy" name="timingStrategy"/>
+                    <subParameter classPath="jmt.engine.NetStrategies.ServiceStrategies.ZeroServiceTimeStrategy" name="timingStrategy"/>
+                </parameter>
+                <parameter array="true" classPath="java.lang.Integer" name="firingPriorities">
+                    <subParameter classPath="java.lang.Integer" name="firingPriority">
+                        <value>0</value>
+                    </subParameter>
+                    <subParameter classPath="java.lang.Integer" name="firingPriority">
+                        <value>0</value>
+                    </subParameter>
+                </parameter>
+                <parameter array="true" classPath="java.lang.Double" name="firingWeights">
+                    <subParameter classPath="java.lang.Double" name="firingWeight">
+                        <value>1.0</value>
+                    </subParameter>
+                    <subParameter classPath="java.lang.Double" name="firingWeight">
+                        <value>1.0</value>
+                    </subParameter>
+                </parameter>
+            </section>
+            <section className="Firing">
+                <parameter array="true" classPath="jmt.engine.NetStrategies.TransitionUtilities.TransitionMatrix" name="firingOutcomes">
+                    <subParameter classPath="jmt.engine.NetStrategies.TransitionUtilities.TransitionMatrix" name="firingOutcome">
+                        <subParameter array="true" classPath="jmt.engine.NetStrategies.TransitionUtilities.TransitionVector" name="firingVectors">
+                            <subParameter classPath="jmt.engine.NetStrategies.TransitionUtilities.TransitionVector" name="firingVector">
+                                <subParameter classPath="java.lang.String" name="stationName">
+                                    <value>Serverless</value>
+                                </subParameter>
+                                <subParameter array="true" classPath="java.lang.Integer" name="firingEntries">
+                                    <refClass>Low</refClass>
+                                    <subParameter classPath="java.lang.Integer" name="firingEntry">
+                                        <value>1</value>
+                                    </subParameter>
+                                    <refClass>High</refClass>
+                                    <subParameter classPath="java.lang.Integer" name="firingEntry">
+                                        <value>0</value>
+                                    </subParameter>
+                                    <refClass>Token</refClass>
+                                    <subParameter classPath="java.lang.Integer" name="firingEntry">
+                                        <value>0</value>
+                                    </subParameter>
+                                </subParameter>
+                            </subParameter>
+                            <subParameter classPath="jmt.engine.NetStrategies.TransitionUtilities.TransitionVector" name="firingVector">
+                                <subParameter classPath="java.lang.String" name="stationName">
+                                    <value>Battery</value>
+                                </subParameter>
+                                <subParameter array="true" classPath="java.lang.Integer" name="firingEntries">
+                                    <refClass>Low</refClass>
+                                    <subParameter classPath="java.lang.Integer" name="firingEntry">
+                                        <value>0</value>
+                                    </subParameter>
+                                    <refClass>High</refClass>
+                                    <subParameter classPath="java.lang.Integer" name="firingEntry">
+                                        <value>0</value>
+                                    </subParameter>
+                                    <refClass>Token</refClass>
+                                    <subParameter classPath="java.lang.Integer" name="firingEntry">
+                                        <value>30</value>
+                                    </subParameter>
+                                </subParameter>
+                            </subParameter>
+                        </subParameter>
+                    </subParameter>
+                    <subParameter classPath="jmt.engine.NetStrategies.TransitionUtilities.TransitionMatrix" name="firingOutcome">
+                        <subParameter array="true" classPath="jmt.engine.NetStrategies.TransitionUtilities.TransitionVector" name="firingVectors">
+                            <subParameter classPath="jmt.engine.NetStrategies.TransitionUtilities.TransitionVector" name="firingVector">
+                                <subParameter classPath="java.lang.String" name="stationName">
+                                    <value>Serverless</value>
+                                </subParameter>
+                                <subParameter array="true" classPath="java.lang.Integer" name="firingEntries">
+                                    <refClass>Low</refClass>
+                                    <subParameter classPath="java.lang.Integer" name="firingEntry">
+                                        <value>0</value>
+                                    </subParameter>
+                                    <refClass>High</refClass>
+                                    <subParameter classPath="java.lang.Integer" name="firingEntry">
+                                        <value>1</value>
+                                    </subParameter>
+                                    <refClass>Token</refClass>
+                                    <subParameter classPath="java.lang.Integer" name="firingEntry">
+                                        <value>0</value>
+                                    </subParameter>
+                                </subParameter>
+                            </subParameter>
+                            <subParameter classPath="jmt.engine.NetStrategies.TransitionUtilities.TransitionVector" name="firingVector">
+                                <subParameter classPath="java.lang.String" name="stationName">
+                                    <value>Battery</value>
+                                </subParameter>
+                                <subParameter array="true" classPath="java.lang.Integer" name="firingEntries">
+                                    <refClass>Low</refClass>
+                                    <subParameter classPath="java.lang.Integer" name="firingEntry">
+                                        <value>0</value>
+                                    </subParameter>
+                                    <refClass>High</refClass>
+                                    <subParameter classPath="java.lang.Integer" name="firingEntry">
+                                        <value>0</value>
+                                    </subParameter>
+                                    <refClass>Token</refClass>
+                                    <subParameter classPath="java.lang.Integer" name="firingEntry">
+                                        <value>129</value>
+                                    </subParameter>
+                                </subParameter>
+                            </subParameter>
+                        </subParameter>
+                    </subParameter>
+                </parameter>
+            </section>
+        </node>
+        <node name="Serverless">
+            <section className="Storage">
+                <parameter classPath="java.lang.Integer" name="totalCapacity">
+                    <value>-1</value>
+                </parameter>
+                <parameter array="true" classPath="java.lang.Integer" name="capacities">
+                    <refClass>Low</refClass>
+                    <subParameter classPath="java.lang.Integer" name="capacity">
+                        <value>-1</value>
+                    </subParameter>
+                    <refClass>High</refClass>
+                    <subParameter classPath="java.lang.Integer" name="capacity">
+                        <value>-1</value>
+                    </subParameter>
+                    <refClass>Token</refClass>
+                    <subParameter classPath="java.lang.Integer" name="capacity">
+                        <value>-1</value>
+                    </subParameter>
+                </parameter>
+                <parameter array="true" classPath="java.lang.String" name="dropRules">
+                    <refClass>Low</refClass>
+                    <subParameter classPath="java.lang.String" name="dropRule">
+                        <value>drop</value>
+                    </subParameter>
+                    <refClass>High</refClass>
+                    <subParameter classPath="java.lang.String" name="dropRule">
+                        <value>drop</value>
+                    </subParameter>
+                    <refClass>Token</refClass>
+                    <subParameter classPath="java.lang.String" name="dropRule">
+                        <value>drop</value>
+                    </subParameter>
+                </parameter>
+                <parameter classPath="jmt.engine.NetStrategies.QueueGetStrategies.FCFSstrategy" name="getStrategy"/>
+                <parameter array="true" classPath="jmt.engine.NetStrategies.QueuePutStrategy" name="putStrategies">
+                    <refClass>Low</refClass>
+                    <subParameter classPath="jmt.engine.NetStrategies.QueuePutStrategies.TailStrategy" name="putStrategy"/>
+                    <refClass>High</refClass>
+                    <subParameter classPath="jmt.engine.NetStrategies.QueuePutStrategies.TailStrategy" name="putStrategy"/>
+                    <refClass>Token</refClass>
+                    <subParameter classPath="jmt.engine.NetStrategies.QueuePutStrategies.TailStrategy" name="putStrategy"/>
+                </parameter>
+            </section>
+            <section className="ServiceTunnel"/>
+            <section className="Linkage"/>
+        </node>
+        <node name="Analysing">
+            <section className="Enabling">
+                <parameter array="true" classPath="jmt.engine.NetStrategies.TransitionUtilities.TransitionMatrix" name="enablingConditions">
+                    <subParameter classPath="jmt.engine.NetStrategies.TransitionUtilities.TransitionMatrix" name="enablingCondition">
+                        <subParameter array="true" classPath="jmt.engine.NetStrategies.TransitionUtilities.TransitionVector" name="enablingVectors">
+                            <subParameter classPath="jmt.engine.NetStrategies.TransitionUtilities.TransitionVector" name="enablingVector">
+                                <subParameter classPath="java.lang.String" name="stationName">
+                                    <value>Serverless</value>
+                                </subParameter>
+                                <subParameter array="true" classPath="java.lang.Integer" name="enablingEntries">
+                                    <refClass>Low</refClass>
+                                    <subParameter classPath="java.lang.Integer" name="enablingEntry">
+                                        <value>1</value>
+                                    </subParameter>
+                                    <refClass>High</refClass>
+                                    <subParameter classPath="java.lang.Integer" name="enablingEntry">
+                                        <value>0</value>
+                                    </subParameter>
+                                    <refClass>Token</refClass>
+                                    <subParameter classPath="java.lang.Integer" name="enablingEntry">
+                                        <value>0</value>
+                                    </subParameter>
+                                </subParameter>
+                            </subParameter>
+                        </subParameter>
+                    </subParameter>
+                    <subParameter classPath="jmt.engine.NetStrategies.TransitionUtilities.TransitionMatrix" name="enablingCondition">
+                        <subParameter array="true" classPath="jmt.engine.NetStrategies.TransitionUtilities.TransitionVector" name="enablingVectors">
+                            <subParameter classPath="jmt.engine.NetStrategies.TransitionUtilities.TransitionVector" name="enablingVector">
+                                <subParameter classPath="java.lang.String" name="stationName">
+                                    <value>Serverless</value>
+                                </subParameter>
+                                <subParameter array="true" classPath="java.lang.Integer" name="enablingEntries">
+                                    <refClass>Low</refClass>
+                                    <subParameter classPath="java.lang.Integer" name="enablingEntry">
+                                        <value>0</value>
+                                    </subParameter>
+                                    <refClass>High</refClass>
+                                    <subParameter classPath="java.lang.Integer" name="enablingEntry">
+                                        <value>1</value>
+                                    </subParameter>
+                                    <refClass>Token</refClass>
+                                    <subParameter classPath="java.lang.Integer" name="enablingEntry">
+                                        <value>0</value>
+                                    </subParameter>
+                                </subParameter>
+                            </subParameter>
+                        </subParameter>
+                    </subParameter>
+                </parameter>
+                <parameter array="true" classPath="jmt.engine.NetStrategies.TransitionUtilities.TransitionMatrix" name="inhibitingConditions">
+                    <subParameter classPath="jmt.engine.NetStrategies.TransitionUtilities.TransitionMatrix" name="inhibitingCondition">
+                        <subParameter array="true" classPath="jmt.engine.NetStrategies.TransitionUtilities.TransitionVector" name="inhibitingVectors">
+                            <subParameter classPath="jmt.engine.NetStrategies.TransitionUtilities.TransitionVector" name="inhibitingVector">
+                                <subParameter classPath="java.lang.String" name="stationName">
+                                    <value>Serverless</value>
+                                </subParameter>
+                                <subParameter array="true" classPath="java.lang.Integer" name="inhibitingEntries">
+                                    <refClass>Low</refClass>
+                                    <subParameter classPath="java.lang.Integer" name="inhibitingEntry">
+                                        <value>0</value>
+                                    </subParameter>
+                                    <refClass>High</refClass>
+                                    <subParameter classPath="java.lang.Integer" name="inhibitingEntry">
+                                        <value>0</value>
+                                    </subParameter>
+                                    <refClass>Token</refClass>
+                                    <subParameter classPath="java.lang.Integer" name="inhibitingEntry">
+                                        <value>0</value>
+                                    </subParameter>
+                                </subParameter>
+                            </subParameter>
+                        </subParameter>
+                    </subParameter>
+                    <subParameter classPath="jmt.engine.NetStrategies.TransitionUtilities.TransitionMatrix" name="inhibitingCondition">
+                        <subParameter array="true" classPath="jmt.engine.NetStrategies.TransitionUtilities.TransitionVector" name="inhibitingVectors">
+                            <subParameter classPath="jmt.engine.NetStrategies.TransitionUtilities.TransitionVector" name="inhibitingVector">
+                                <subParameter classPath="java.lang.String" name="stationName">
+                                    <value>Serverless</value>
+                                </subParameter>
+                                <subParameter array="true" classPath="java.lang.Integer" name="inhibitingEntries">
+                                    <refClass>Low</refClass>
+                                    <subParameter classPath="java.lang.Integer" name="inhibitingEntry">
+                                        <value>0</value>
+                                    </subParameter>
+                                    <refClass>High</refClass>
+                                    <subParameter classPath="java.lang.Integer" name="inhibitingEntry">
+                                        <value>0</value>
+                                    </subParameter>
+                                    <refClass>Token</refClass>
+                                    <subParameter classPath="java.lang.Integer" name="inhibitingEntry">
+                                        <value>0</value>
+                                    </subParameter>
+                                </subParameter>
+                            </subParameter>
+                        </subParameter>
+                    </subParameter>
+                </parameter>
+            </section>
+            <section className="Timing">
+                <parameter array="true" classPath="java.lang.String" name="modeNames">
+                    <subParameter classPath="java.lang.String" name="modeName">
+                        <value>Mode1</value>
+                    </subParameter>
+                    <subParameter classPath="java.lang.String" name="modeName">
+                        <value>Mode2</value>
+                    </subParameter>
+                </parameter>
+                <parameter array="true" classPath="java.lang.Integer" name="numbersOfServers">
+                    <subParameter classPath="java.lang.Integer" name="numberOfServers">
+                        <value>-1</value>
+                    </subParameter>
+                    <subParameter classPath="java.lang.Integer" name="numberOfServers">
+                        <value>-1</value>
+                    </subParameter>
+                </parameter>
+                <parameter array="true" classPath="jmt.engine.NetStrategies.ServiceStrategy" name="timingStrategies">
+                    <subParameter classPath="jmt.engine.NetStrategies.ServiceStrategies.ServiceTimeStrategy" name="timingStrategy">
+                        <subParameter classPath="jmt.engine.random.Exponential" name="Exponential"/>
+                        <subParameter classPath="jmt.engine.random.ExponentialPar" name="distrPar">
+                            <subParameter classPath="java.lang.Double" name="lambda">
+                                <value>1.0</value>
+                            </subParameter>
+                        </subParameter>
+                    </subParameter>
+                    <subParameter classPath="jmt.engine.NetStrategies.ServiceStrategies.ServiceTimeStrategy" name="timingStrategy">
+                        <subParameter classPath="jmt.engine.random.Exponential" name="Exponential"/>
+                        <subParameter classPath="jmt.engine.random.ExponentialPar" name="distrPar">
+                            <subParameter classPath="java.lang.Double" name="lambda">
+                                <value>0.4</value>
+                            </subParameter>
+                        </subParameter>
+                    </subParameter>
+                </parameter>
+                <parameter array="true" classPath="java.lang.Integer" name="firingPriorities">
+                    <subParameter classPath="java.lang.Integer" name="firingPriority">
+                        <value>-1</value>
+                    </subParameter>
+                    <subParameter classPath="java.lang.Integer" name="firingPriority">
+                        <value>-1</value>
+                    </subParameter>
+                </parameter>
+                <parameter array="true" classPath="java.lang.Double" name="firingWeights">
+                    <subParameter classPath="java.lang.Double" name="firingWeight">
+                        <value>1.0</value>
+                    </subParameter>
+                    <subParameter classPath="java.lang.Double" name="firingWeight">
+                        <value>1.0</value>
+                    </subParameter>
+                </parameter>
+            </section>
+            <section className="Firing">
+                <parameter array="true" classPath="jmt.engine.NetStrategies.TransitionUtilities.TransitionMatrix" name="firingOutcomes">
+                    <subParameter classPath="jmt.engine.NetStrategies.TransitionUtilities.TransitionMatrix" name="firingOutcome">
+                        <subParameter array="true" classPath="jmt.engine.NetStrategies.TransitionUtilities.TransitionVector" name="firingVectors">
+                            <subParameter classPath="jmt.engine.NetStrategies.TransitionUtilities.TransitionVector" name="firingVector">
+                                <subParameter classPath="java.lang.String" name="stationName">
+                                    <value>Start</value>
+                                </subParameter>
+                                <subParameter array="true" classPath="java.lang.Integer" name="firingEntries">
+                                    <refClass>Low</refClass>
+                                    <subParameter classPath="java.lang.Integer" name="firingEntry">
+                                        <value>1</value>
+                                    </subParameter>
+                                    <refClass>High</refClass>
+                                    <subParameter classPath="java.lang.Integer" name="firingEntry">
+                                        <value>0</value>
+                                    </subParameter>
+                                    <refClass>Token</refClass>
+                                    <subParameter classPath="java.lang.Integer" name="firingEntry">
+                                        <value>0</value>
+                                    </subParameter>
+                                </subParameter>
+                            </subParameter>
+                        </subParameter>
+                    </subParameter>
+                    <subParameter classPath="jmt.engine.NetStrategies.TransitionUtilities.TransitionMatrix" name="firingOutcome">
+                        <subParameter array="true" classPath="jmt.engine.NetStrategies.TransitionUtilities.TransitionVector" name="firingVectors">
+                            <subParameter classPath="jmt.engine.NetStrategies.TransitionUtilities.TransitionVector" name="firingVector">
+                                <subParameter classPath="java.lang.String" name="stationName">
+                                    <value>Start</value>
+                                </subParameter>
+                                <subParameter array="true" classPath="java.lang.Integer" name="firingEntries">
+                                    <refClass>Low</refClass>
+                                    <subParameter classPath="java.lang.Integer" name="firingEntry">
+                                        <value>0</value>
+                                    </subParameter>
+                                    <refClass>High</refClass>
+                                    <subParameter classPath="java.lang.Integer" name="firingEntry">
+                                        <value>1</value>
+                                    </subParameter>
+                                    <refClass>Token</refClass>
+                                    <subParameter classPath="java.lang.Integer" name="firingEntry">
+                                        <value>0</value>
+                                    </subParameter>
+                                </subParameter>
+                            </subParameter>
+                        </subParameter>
+                    </subParameter>
+                </parameter>
+            </section>
+        </node>
+        <node name="Battery">
+            <section className="Storage">
+                <parameter classPath="java.lang.Integer" name="totalCapacity">
+                    <value>-1</value>
+                </parameter>
+                <parameter array="true" classPath="java.lang.Integer" name="capacities">
+                    <refClass>Low</refClass>
+                    <subParameter classPath="java.lang.Integer" name="capacity">
+                        <value>-1</value>
+                    </subParameter>
+                    <refClass>High</refClass>
+                    <subParameter classPath="java.lang.Integer" name="capacity">
+                        <value>-1</value>
+                    </subParameter>
+                    <refClass>Token</refClass>
+                    <subParameter classPath="java.lang.Integer" name="capacity">
+                        <value>-1</value>
+                    </subParameter>
+                </parameter>
+                <parameter array="true" classPath="java.lang.String" name="dropRules">
+                    <refClass>Low</refClass>
+                    <subParameter classPath="java.lang.String" name="dropRule">
+                        <value>drop</value>
+                    </subParameter>
+                    <refClass>High</refClass>
+                    <subParameter classPath="java.lang.String" name="dropRule">
+                        <value>drop</value>
+                    </subParameter>
+                    <refClass>Token</refClass>
+                    <subParameter classPath="java.lang.String" name="dropRule">
+                        <value>drop</value>
+                    </subParameter>
+                </parameter>
+                <parameter classPath="jmt.engine.NetStrategies.QueueGetStrategies.FCFSstrategy" name="getStrategy"/>
+                <parameter array="true" classPath="jmt.engine.NetStrategies.QueuePutStrategy" name="putStrategies">
+                    <refClass>Low</refClass>
+                    <subParameter classPath="jmt.engine.NetStrategies.QueuePutStrategies.TailStrategy" name="putStrategy"/>
+                    <refClass>High</refClass>
+                    <subParameter classPath="jmt.engine.NetStrategies.QueuePutStrategies.TailStrategy" name="putStrategy"/>
+                    <refClass>Token</refClass>
+                    <subParameter classPath="jmt.engine.NetStrategies.QueuePutStrategies.TailStrategy" name="putStrategy"/>
+                </parameter>
+            </section>
+            <section className="ServiceTunnel"/>
+            <section className="Linkage"/>
+        </node>
+        <node name="Idle">
+            <section className="Enabling">
+                <parameter array="true" classPath="jmt.engine.NetStrategies.TransitionUtilities.TransitionMatrix" name="enablingConditions">
+                    <subParameter classPath="jmt.engine.NetStrategies.TransitionUtilities.TransitionMatrix" name="enablingCondition">
+                        <subParameter array="true" classPath="jmt.engine.NetStrategies.TransitionUtilities.TransitionVector" name="enablingVectors">
+                            <subParameter classPath="jmt.engine.NetStrategies.TransitionUtilities.TransitionVector" name="enablingVector">
+                                <subParameter classPath="java.lang.String" name="stationName">
+                                    <value>Place 5</value>
+                                </subParameter>
+                                <subParameter array="true" classPath="java.lang.Integer" name="enablingEntries">
+                                    <refClass>Low</refClass>
+                                    <subParameter classPath="java.lang.Integer" name="enablingEntry">
+                                        <value>0</value>
+                                    </subParameter>
+                                    <refClass>High</refClass>
+                                    <subParameter classPath="java.lang.Integer" name="enablingEntry">
+                                        <value>0</value>
+                                    </subParameter>
+                                    <refClass>Token</refClass>
+                                    <subParameter classPath="java.lang.Integer" name="enablingEntry">
+                                        <value>0</value>
+                                    </subParameter>
+                                </subParameter>
+                            </subParameter>
+                        </subParameter>
+                    </subParameter>
+                </parameter>
+                <parameter array="true" classPath="jmt.engine.NetStrategies.TransitionUtilities.TransitionMatrix" name="inhibitingConditions">
+                    <subParameter classPath="jmt.engine.NetStrategies.TransitionUtilities.TransitionMatrix" name="inhibitingCondition">
+                        <subParameter array="true" classPath="jmt.engine.NetStrategies.TransitionUtilities.TransitionVector" name="inhibitingVectors">
+                            <subParameter classPath="jmt.engine.NetStrategies.TransitionUtilities.TransitionVector" name="inhibitingVector">
+                                <subParameter classPath="java.lang.String" name="stationName">
+                                    <value>Place 5</value>
+                                </subParameter>
+                                <subParameter array="true" classPath="java.lang.Integer" name="inhibitingEntries">
+                                    <refClass>Low</refClass>
+                                    <subParameter classPath="java.lang.Integer" name="inhibitingEntry">
+                                        <value>1</value>
+                                    </subParameter>
+                                    <refClass>High</refClass>
+                                    <subParameter classPath="java.lang.Integer" name="inhibitingEntry">
+                                        <value>1</value>
+                                    </subParameter>
+                                    <refClass>Token</refClass>
+                                    <subParameter classPath="java.lang.Integer" name="inhibitingEntry">
+                                        <value>0</value>
+                                    </subParameter>
+                                </subParameter>
+                            </subParameter>
+                        </subParameter>
+                    </subParameter>
+                </parameter>
+            </section>
+            <section className="Timing">
+                <parameter array="true" classPath="java.lang.String" name="modeNames">
+                    <subParameter classPath="java.lang.String" name="modeName">
+                        <value>Mode1</value>
+                    </subParameter>
+                </parameter>
+                <parameter array="true" classPath="java.lang.Integer" name="numbersOfServers">
+                    <subParameter classPath="java.lang.Integer" name="numberOfServers">
+                        <value>-1</value>
+                    </subParameter>
+                </parameter>
+                <parameter array="true" classPath="jmt.engine.NetStrategies.ServiceStrategy" name="timingStrategies">
+                    <subParameter classPath="jmt.engine.NetStrategies.ServiceStrategies.ServiceTimeStrategy" name="timingStrategy">
+                        <subParameter classPath="jmt.engine.random.DeterministicDistr" name="Deterministic"/>
+                        <subParameter classPath="jmt.engine.random.DeterministicDistrPar" name="distrPar">
+                            <subParameter classPath="java.lang.Double" name="t">
+                                <value>1.0</value>
+                            </subParameter>
+                        </subParameter>
+                    </subParameter>
+                </parameter>
+                <parameter array="true" classPath="java.lang.Integer" name="firingPriorities">
+                    <subParameter classPath="java.lang.Integer" name="firingPriority">
+                        <value>-1</value>
+                    </subParameter>
+                </parameter>
+                <parameter array="true" classPath="java.lang.Double" name="firingWeights">
+                    <subParameter classPath="java.lang.Double" name="firingWeight">
+                        <value>1.0</value>
+                    </subParameter>
+                </parameter>
+            </section>
+            <section className="Firing">
+                <parameter array="true" classPath="jmt.engine.NetStrategies.TransitionUtilities.TransitionMatrix" name="firingOutcomes">
+                    <subParameter classPath="jmt.engine.NetStrategies.TransitionUtilities.TransitionMatrix" name="firingOutcome">
+                        <subParameter array="true" classPath="jmt.engine.NetStrategies.TransitionUtilities.TransitionVector" name="firingVectors">
+                            <subParameter classPath="jmt.engine.NetStrategies.TransitionUtilities.TransitionVector" name="firingVector">
+                                <subParameter classPath="java.lang.String" name="stationName">
+                                    <value>Battery</value>
+                                </subParameter>
+                                <subParameter array="true" classPath="java.lang.Integer" name="firingEntries">
+                                    <refClass>Low</refClass>
+                                    <subParameter classPath="java.lang.Integer" name="firingEntry">
+                                        <value>0</value>
+                                    </subParameter>
+                                    <refClass>High</refClass>
+                                    <subParameter classPath="java.lang.Integer" name="firingEntry">
+                                        <value>0</value>
+                                    </subParameter>
+                                    <refClass>Token</refClass>
+                                    <subParameter classPath="java.lang.Integer" name="firingEntry">
+                                        <value>1578</value>
+                                    </subParameter>
+                                </subParameter>
+                            </subParameter>
+                        </subParameter>
+                    </subParameter>
+                </parameter>
+            </section>
+        </node>
+        <node name="Reset">
+            <section className="Enabling">
+                <parameter array="true" classPath="jmt.engine.NetStrategies.TransitionUtilities.TransitionMatrix" name="enablingConditions">
+                    <subParameter classPath="jmt.engine.NetStrategies.TransitionUtilities.TransitionMatrix" name="enablingCondition">
+                        <subParameter array="true" classPath="jmt.engine.NetStrategies.TransitionUtilities.TransitionVector" name="enablingVectors">
+                            <subParameter classPath="jmt.engine.NetStrategies.TransitionUtilities.TransitionVector" name="enablingVector">
+                                <subParameter classPath="java.lang.String" name="stationName">
+                                    <value>Battery</value>
+                                </subParameter>
+                                <subParameter array="true" classPath="java.lang.Integer" name="enablingEntries">
+                                    <refClass>Low</refClass>
+                                    <subParameter classPath="java.lang.Integer" name="enablingEntry">
+                                        <value>0</value>
+                                    </subParameter>
+                                    <refClass>High</refClass>
+                                    <subParameter classPath="java.lang.Integer" name="enablingEntry">
+                                        <value>0</value>
+                                    </subParameter>
+                                    <refClass>Token</refClass>
+                                    <subParameter classPath="java.lang.Integer" name="enablingEntry">
+                                        <value>10000</value>
+                                    </subParameter>
+                                </subParameter>
+                            </subParameter>
+                            <subParameter classPath="jmt.engine.NetStrategies.TransitionUtilities.TransitionVector" name="enablingVector">
+                                <subParameter classPath="java.lang.String" name="stationName">
+                                    <value>Helper</value>
+                                </subParameter>
+                                <subParameter array="true" classPath="java.lang.Integer" name="enablingEntries">
+                                    <refClass>Low</refClass>
+                                    <subParameter classPath="java.lang.Integer" name="enablingEntry">
+                                        <value>0</value>
+                                    </subParameter>
+                                    <refClass>High</refClass>
+                                    <subParameter classPath="java.lang.Integer" name="enablingEntry">
+                                        <value>0</value>
+                                    </subParameter>
+                                    <refClass>Token</refClass>
+                                    <subParameter classPath="java.lang.Integer" name="enablingEntry">
+                                        <value>1</value>
+                                    </subParameter>
+                                </subParameter>
+                            </subParameter>
+                        </subParameter>
+                    </subParameter>
+                </parameter>
+                <parameter array="true" classPath="jmt.engine.NetStrategies.TransitionUtilities.TransitionMatrix" name="inhibitingConditions">
+                    <subParameter classPath="jmt.engine.NetStrategies.TransitionUtilities.TransitionMatrix" name="inhibitingCondition">
+                        <subParameter array="true" classPath="jmt.engine.NetStrategies.TransitionUtilities.TransitionVector" name="inhibitingVectors">
+                            <subParameter classPath="jmt.engine.NetStrategies.TransitionUtilities.TransitionVector" name="inhibitingVector">
+                                <subParameter classPath="java.lang.String" name="stationName">
+                                    <value>Battery</value>
+                                </subParameter>
+                                <subParameter array="true" classPath="java.lang.Integer" name="inhibitingEntries">
+                                    <refClass>Low</refClass>
+                                    <subParameter classPath="java.lang.Integer" name="inhibitingEntry">
+                                        <value>0</value>
+                                    </subParameter>
+                                    <refClass>High</refClass>
+                                    <subParameter classPath="java.lang.Integer" name="inhibitingEntry">
+                                        <value>0</value>
+                                    </subParameter>
+                                    <refClass>Token</refClass>
+                                    <subParameter classPath="java.lang.Integer" name="inhibitingEntry">
+                                        <value>0</value>
+                                    </subParameter>
+                                </subParameter>
+                            </subParameter>
+                            <subParameter classPath="jmt.engine.NetStrategies.TransitionUtilities.TransitionVector" name="inhibitingVector">
+                                <subParameter classPath="java.lang.String" name="stationName">
+                                    <value>Helper</value>
+                                </subParameter>
+                                <subParameter array="true" classPath="java.lang.Integer" name="inhibitingEntries">
+                                    <refClass>Low</refClass>
+                                    <subParameter classPath="java.lang.Integer" name="inhibitingEntry">
+                                        <value>0</value>
+                                    </subParameter>
+                                    <refClass>High</refClass>
+                                    <subParameter classPath="java.lang.Integer" name="inhibitingEntry">
+                                        <value>0</value>
+                                    </subParameter>
+                                    <refClass>Token</refClass>
+                                    <subParameter classPath="java.lang.Integer" name="inhibitingEntry">
+                                        <value>0</value>
+                                    </subParameter>
+                                </subParameter>
+                            </subParameter>
+                        </subParameter>
+                    </subParameter>
+                </parameter>
+            </section>
+            <section className="Timing">
+                <parameter array="true" classPath="java.lang.String" name="modeNames">
+                    <subParameter classPath="java.lang.String" name="modeName">
+                        <value>Mode1</value>
+                    </subParameter>
+                </parameter>
+                <parameter array="true" classPath="java.lang.Integer" name="numbersOfServers">
+                    <subParameter classPath="java.lang.Integer" name="numberOfServers">
+                        <value>-1</value>
+                    </subParameter>
+                </parameter>
+                <parameter array="true" classPath="jmt.engine.NetStrategies.ServiceStrategy" name="timingStrategies">
+                    <subParameter classPath="jmt.engine.NetStrategies.ServiceStrategies.ZeroServiceTimeStrategy" name="timingStrategy"/>
+                </parameter>
+                <parameter array="true" classPath="java.lang.Integer" name="firingPriorities">
+                    <subParameter classPath="java.lang.Integer" name="firingPriority">
+                        <value>0</value>
+                    </subParameter>
+                </parameter>
+                <parameter array="true" classPath="java.lang.Double" name="firingWeights">
+                    <subParameter classPath="java.lang.Double" name="firingWeight">
+                        <value>1.0</value>
+                    </subParameter>
+                </parameter>
+            </section>
+            <section className="Firing">
+                <parameter array="true" classPath="jmt.engine.NetStrategies.TransitionUtilities.TransitionMatrix" name="firingOutcomes">
+                    <subParameter classPath="jmt.engine.NetStrategies.TransitionUtilities.TransitionMatrix" name="firingOutcome">
+                        <subParameter array="true" classPath="jmt.engine.NetStrategies.TransitionUtilities.TransitionVector" name="firingVectors">
+                            <subParameter classPath="jmt.engine.NetStrategies.TransitionUtilities.TransitionVector" name="firingVector">
+                                <subParameter classPath="java.lang.String" name="stationName">
+                                    <value>Helper</value>
+                                </subParameter>
+                                <subParameter array="true" classPath="java.lang.Integer" name="firingEntries">
+                                    <refClass>Low</refClass>
+                                    <subParameter classPath="java.lang.Integer" name="firingEntry">
+                                        <value>0</value>
+                                    </subParameter>
+                                    <refClass>High</refClass>
+                                    <subParameter classPath="java.lang.Integer" name="firingEntry">
+                                        <value>0</value>
+                                    </subParameter>
+                                    <refClass>Token</refClass>
+                                    <subParameter classPath="java.lang.Integer" name="firingEntry">
+                                        <value>1</value>
+                                    </subParameter>
+                                </subParameter>
+                            </subParameter>
+                        </subParameter>
+                    </subParameter>
+                </parameter>
+            </section>
+        </node>
+        <node name="Helper">
+            <section className="Storage">
+                <parameter classPath="java.lang.Integer" name="totalCapacity">
+                    <value>-1</value>
+                </parameter>
+                <parameter array="true" classPath="java.lang.Integer" name="capacities">
+                    <refClass>Low</refClass>
+                    <subParameter classPath="java.lang.Integer" name="capacity">
+                        <value>-1</value>
+                    </subParameter>
+                    <refClass>High</refClass>
+                    <subParameter classPath="java.lang.Integer" name="capacity">
+                        <value>-1</value>
+                    </subParameter>
+                    <refClass>Token</refClass>
+                    <subParameter classPath="java.lang.Integer" name="capacity">
+                        <value>-1</value>
+                    </subParameter>
+                </parameter>
+                <parameter array="true" classPath="java.lang.String" name="dropRules">
+                    <refClass>Low</refClass>
+                    <subParameter classPath="java.lang.String" name="dropRule">
+                        <value>drop</value>
+                    </subParameter>
+                    <refClass>High</refClass>
+                    <subParameter classPath="java.lang.String" name="dropRule">
+                        <value>drop</value>
+                    </subParameter>
+                    <refClass>Token</refClass>
+                    <subParameter classPath="java.lang.String" name="dropRule">
+                        <value>drop</value>
+                    </subParameter>
+                </parameter>
+                <parameter classPath="jmt.engine.NetStrategies.QueueGetStrategies.FCFSstrategy" name="getStrategy"/>
+                <parameter array="true" classPath="jmt.engine.NetStrategies.QueuePutStrategy" name="putStrategies">
+                    <refClass>Low</refClass>
+                    <subParameter classPath="jmt.engine.NetStrategies.QueuePutStrategies.TailStrategy" name="putStrategy"/>
+                    <refClass>High</refClass>
+                    <subParameter classPath="jmt.engine.NetStrategies.QueuePutStrategies.TailStrategy" name="putStrategy"/>
+                    <refClass>Token</refClass>
+                    <subParameter classPath="jmt.engine.NetStrategies.QueuePutStrategies.TailStrategy" name="putStrategy"/>
+                </parameter>
+            </section>
+            <section className="ServiceTunnel"/>
+            <section className="Linkage"/>
+        </node>
+        <node name="Sensors">
+            <section className="Queue">
+                <parameter classPath="java.lang.Integer" name="size">
+                    <value>-1</value>
+                </parameter>
+                <parameter array="true" classPath="java.lang.String" name="dropStrategies">
+                    <refClass>Low</refClass>
+                    <subParameter classPath="java.lang.String" name="dropStrategy">
+                        <value>drop</value>
+                    </subParameter>
+                    <refClass>High</refClass>
+                    <subParameter classPath="java.lang.String" name="dropStrategy">
+                        <value>drop</value>
+                    </subParameter>
+                    <refClass>Token</refClass>
+                    <subParameter classPath="java.lang.String" name="dropStrategy">
+                        <value>drop</value>
+                    </subParameter>
+                </parameter>
+                <parameter array="true" classPath="jmt.engine.NetStrategies.ServiceStrategy" name="retrialDistributions">
+                    <refClass>Low</refClass>
+                    <subParameter classPath="jmt.engine.NetStrategies.ServiceStrategies.ServiceTimeStrategy" name="ServiceTimeStrategy">
+                        <subParameter classPath="jmt.engine.random.Exponential" name="Exponential"/>
+                        <subParameter classPath="jmt.engine.random.ExponentialPar" name="distrPar">
+                            <subParameter classPath="java.lang.Double" name="lambda">
+                                <value>0.5</value>
+                            </subParameter>
+                        </subParameter>
+                    </subParameter>
+                    <refClass>High</refClass>
+                    <subParameter classPath="jmt.engine.NetStrategies.ServiceStrategies.ServiceTimeStrategy" name="ServiceTimeStrategy">
+                        <subParameter classPath="jmt.engine.random.Exponential" name="Exponential"/>
+                        <subParameter classPath="jmt.engine.random.ExponentialPar" name="distrPar">
+                            <subParameter classPath="java.lang.Double" name="lambda">
+                                <value>0.5</value>
+                            </subParameter>
+                        </subParameter>
+                    </subParameter>
+                    <refClass>Token</refClass>
+                    <subParameter classPath="jmt.engine.NetStrategies.ServiceStrategies.ServiceTimeStrategy" name="ServiceTimeStrategy">
+                        <subParameter classPath="jmt.engine.random.Exponential" name="Exponential"/>
+                        <subParameter classPath="jmt.engine.random.ExponentialPar" name="distrPar">
+                            <subParameter classPath="java.lang.Double" name="lambda">
+                                <value>0.5</value>
+                            </subParameter>
+                        </subParameter>
+                    </subParameter>
+                </parameter>
+                <parameter classPath="jmt.engine.NetStrategies.QueueGetStrategies.FCFSstrategy" name="FCFSstrategy"/>
+                <parameter array="true" classPath="jmt.engine.NetStrategies.QueuePutStrategy" name="QueuePutStrategy">
+                    <refClass>Low</refClass>
+                    <subParameter classPath="jmt.engine.NetStrategies.QueuePutStrategies.TailStrategy" name="TailStrategy"/>
+                    <refClass>High</refClass>
+                    <subParameter classPath="jmt.engine.NetStrategies.QueuePutStrategies.TailStrategy" name="TailStrategy"/>
+                    <refClass>Token</refClass>
+                    <subParameter classPath="jmt.engine.NetStrategies.QueuePutStrategies.TailStrategy" name="TailStrategy"/>
+                </parameter>
+                <parameter array="true" classPath="jmt.engine.NetStrategies.ImpatienceStrategies.Impatience" name="Impatience">
+                    <refClass>Low</refClass>
+                    <subParameter classPath="jmt.engine.NetStrategies.ImpatienceStrategies.Impatience" name="Impatience">
+                        <value>null</value>
+                    </subParameter>
+                    <refClass>High</refClass>
+                    <subParameter classPath="jmt.engine.NetStrategies.ImpatienceStrategies.Impatience" name="Impatience">
+                        <value>null</value>
+                    </subParameter>
+                    <refClass>Token</refClass>
+                    <subParameter classPath="jmt.engine.NetStrategies.ImpatienceStrategies.Impatience" name="Impatience">
+                        <value>null</value>
+                    </subParameter>
+                </parameter>
+            </section>
+            <section className="PSServer">
+                <parameter classPath="java.lang.Integer" name="maxJobs">
+                    <value>1</value>
+                </parameter>
+                <parameter array="true" classPath="java.lang.Integer" name="numberOfVisits">
+                    <refClass>Low</refClass>
+                    <subParameter classPath="java.lang.Integer" name="numberOfVisits">
+                        <value>1</value>
+                    </subParameter>
+                    <refClass>High</refClass>
+                    <subParameter classPath="java.lang.Integer" name="numberOfVisits">
+                        <value>1</value>
+                    </subParameter>
+                    <refClass>Token</refClass>
+                    <subParameter classPath="java.lang.Integer" name="numberOfVisits">
+                        <value>1</value>
+                    </subParameter>
+                </parameter>
+                <parameter array="true" classPath="jmt.engine.NetStrategies.ServiceStrategy" name="ServerStrategy">
+                    <refClass>Low</refClass>
+                    <subParameter classPath="jmt.engine.NetStrategies.ServiceStrategies.ServiceTimeStrategy" name="ServiceTimeStrategy">
+                        <subParameter classPath="jmt.engine.random.Exponential" name="Exponential"/>
+                        <subParameter classPath="jmt.engine.random.ExponentialPar" name="distrPar">
+                            <subParameter classPath="java.lang.Double" name="lambda">
+                                <value>82.64462809917356</value>
+                            </subParameter>
+                        </subParameter>
+                    </subParameter>
+                    <refClass>High</refClass>
+                    <subParameter classPath="jmt.engine.NetStrategies.ServiceStrategies.ServiceTimeStrategy" name="ServiceTimeStrategy">
+                        <subParameter classPath="jmt.engine.random.Exponential" name="Exponential"/>
+                        <subParameter classPath="jmt.engine.random.ExponentialPar" name="distrPar">
+                            <subParameter classPath="java.lang.Double" name="lambda">
+                                <value>17.543859649122805</value>
+                            </subParameter>
+                        </subParameter>
+                    </subParameter>
+                    <refClass>Token</refClass>
+                    <subParameter classPath="jmt.engine.NetStrategies.ServiceStrategies.DisabledServiceTimeStrategy" name="DisabledServiceTimeStrategy"/>
+                </parameter>
+                <parameter array="true" classPath="jmt.engine.NetStrategies.PSStrategy" name="PSStrategy">
+                    <refClass>Low</refClass>
+                    <subParameter classPath="jmt.engine.NetStrategies.PSStrategies.EPSStrategy" name="EPSStrategy"/>
+                    <refClass>High</refClass>
+                    <subParameter classPath="jmt.engine.NetStrategies.PSStrategies.EPSStrategy" name="EPSStrategy"/>
+                    <refClass>Token</refClass>
+                    <subParameter classPath="jmt.engine.NetStrategies.PSStrategies.EPSStrategy" name="EPSStrategy"/>
+                </parameter>
+                <parameter array="true" classPath="java.lang.Double" name="serviceWeights">
+                    <refClass>Low</refClass>
+                    <subParameter classPath="java.lang.Double" name="serviceWeight">
+                        <value>1.0</value>
+                    </subParameter>
+                    <refClass>High</refClass>
+                    <subParameter classPath="java.lang.Double" name="serviceWeight">
+                        <value>1.0</value>
+                    </subParameter>
+                    <refClass>Token</refClass>
+                    <subParameter classPath="java.lang.Double" name="serviceWeight">
+                        <value>1.0</value>
+                    </subParameter>
+                </parameter>
+            </section>
+            <section className="Router">
+                <parameter array="true" classPath="jmt.engine.NetStrategies.RoutingStrategy" name="RoutingStrategy">
+                    <refClass>Low</refClass>
+                    <subParameter classPath="jmt.engine.NetStrategies.RoutingStrategies.RandomStrategy" name="Random"/>
+                    <refClass>High</refClass>
+                    <subParameter classPath="jmt.engine.NetStrategies.RoutingStrategies.RandomStrategy" name="Random"/>
+                    <refClass>Token</refClass>
+                    <subParameter classPath="jmt.engine.NetStrategies.RoutingStrategies.RandomStrategy" name="Random"/>
+                </parameter>
+            </section>
+        </node>
+        <node name="Place 5">
+            <section className="Storage">
+                <parameter classPath="java.lang.Integer" name="totalCapacity">
+                    <value>-1</value>
+                </parameter>
+                <parameter array="true" classPath="java.lang.Integer" name="capacities">
+                    <refClass>Low</refClass>
+                    <subParameter classPath="java.lang.Integer" name="capacity">
+                        <value>-1</value>
+                    </subParameter>
+                    <refClass>High</refClass>
+                    <subParameter classPath="java.lang.Integer" name="capacity">
+                        <value>-1</value>
+                    </subParameter>
+                    <refClass>Token</refClass>
+                    <subParameter classPath="java.lang.Integer" name="capacity">
+                        <value>-1</value>
+                    </subParameter>
+                </parameter>
+                <parameter array="true" classPath="java.lang.String" name="dropRules">
+                    <refClass>Low</refClass>
+                    <subParameter classPath="java.lang.String" name="dropRule">
+                        <value>drop</value>
+                    </subParameter>
+                    <refClass>High</refClass>
+                    <subParameter classPath="java.lang.String" name="dropRule">
+                        <value>drop</value>
+                    </subParameter>
+                    <refClass>Token</refClass>
+                    <subParameter classPath="java.lang.String" name="dropRule">
+                        <value>drop</value>
+                    </subParameter>
+                </parameter>
+                <parameter classPath="jmt.engine.NetStrategies.QueueGetStrategies.FCFSstrategy" name="getStrategy"/>
+                <parameter array="true" classPath="jmt.engine.NetStrategies.QueuePutStrategy" name="putStrategies">
+                    <refClass>Low</refClass>
+                    <subParameter classPath="jmt.engine.NetStrategies.QueuePutStrategies.TailStrategy" name="putStrategy"/>
+                    <refClass>High</refClass>
+                    <subParameter classPath="jmt.engine.NetStrategies.QueuePutStrategies.TailStrategy" name="putStrategy"/>
+                    <refClass>Token</refClass>
+                    <subParameter classPath="jmt.engine.NetStrategies.QueuePutStrategies.TailStrategy" name="putStrategy"/>
+                </parameter>
+            </section>
+            <section className="ServiceTunnel"/>
+            <section className="Linkage"/>
+        </node>
+        <measure alpha="0.01" name="Analysing_Low_Throughput" nodeType="station" precision="0.03" referenceNode="Analysing" referenceUserClass="Low" type="Throughput" verbose="false"/>
+        <measure alpha="0.01" name="Analysing_High_Throughput" nodeType="station" precision="0.03" referenceNode="Analysing" referenceUserClass="High" type="Throughput" verbose="false"/>
+        <measure alpha="0.01" name="Helper_Token_Response Time" nodeType="station" precision="0.03" referenceNode="Helper" referenceUserClass="Token" type="Response Time" verbose="false"/>
+        <connection source="Start" target="Delay"/>
+        <connection source="Delay" target="Sensors"/>
+        <connection source="Sampling" target="Serverless"/>
+        <connection source="Sampling" target="Battery"/>
+        <connection source="Serverless" target="Analysing"/>
+        <connection source="Analysing" target="Start"/>
+        <connection source="Battery" target="Reset"/>
+        <connection source="Idle" target="Battery"/>
+        <connection source="Reset" target="Helper"/>
+        <connection source="Helper" target="Reset"/>
+        <connection source="Sensors" target="Place 5"/>
+        <connection source="Place 5" target="Sampling"/>
+        <connection source="Place 5" target="Idle"/>
+        <preload>
+            <stationPopulations stationName="Start">
+                <classPopulation population="100" refClass="Low"/>
+            </stationPopulations>
+            <stationPopulations stationName="Helper">
+                <classPopulation population="1" refClass="Token"/>
+            </stationPopulations>
+        </preload>
+    </sim>
+    <jmodel xsi:noNamespaceSchemaLocation="JModelGUI.xsd">
+        <userClass color="#FF0000FF" name="Low"/>
+        <userClass color="#FFFF0000" name="High"/>
+        <userClass color="#FF00FF00" name="Token"/>
+        <station name="Start">
+            <position angle="0.0" rotate="false" x="313.0" y="234.0"/>
+        </station>
+        <station name="Delay">
+            <position angle="0.0" rotate="false" x="406.0" y="234.0"/>
+        </station>
+        <station name="Sampling">
+            <position angle="0.0" rotate="false" x="749.0" y="234.0"/>
+        </station>
+        <station name="Serverless">
+            <position angle="0.0" rotate="false" x="872.0" y="234.0"/>
+        </station>
+        <station name="Analysing">
+            <position angle="0.0" rotate="false" x="1005.0" y="234.0"/>
+        </station>
+        <station name="Battery">
+            <position angle="0.0" rotate="false" x="856.0" y="17.0"/>
+        </station>
+        <station name="Idle">
+            <position angle="0.0" rotate="false" x="764.0" y="17.0"/>
+        </station>
+        <station name="Reset">
+            <position angle="0.0" rotate="false" x="1035.0" y="17.0"/>
+        </station>
+        <station name="Helper">
+            <position angle="0.0" rotate="true" x="1037.0" y="108.0"/>
+        </station>
+        <station name="Sensors">
+            <position angle="0.0" rotate="false" x="503.0" y="231.0"/>
+        </station>
+        <station name="Place 5">
+            <position angle="0.0" rotate="false" x="645.0" y="234.0"/>
+        </station>
+    </jmodel>
+    <results elapsedTime="207781" logDecimalSeparator="." logDelimiter="," pollingInterval="1.0" xsi:noNamespaceSchemaLocation="Results.xsd">
+        <measure alpha="0.99" analyzedSamples="33280" discardedSamples="2005" finalValue="79.9299953718129" name="Analysing_Low_Throughput" nodeType="station" precision="0.03" referenceClass="Low" referenceStation="Analysing" state="1" type="5">
+            <sample lastIntervalAvgValue="77.7929630923474" meanValue="77.7929630923474" simulationTime="86.25458824642806"/>
+            <sample lastIntervalAvgValue="80.15624595353395" lowerBound="77.6837458273534" meanValue="80.18544739216807" simulationTime="253.61522047684196" upperBound="82.85363846337448"/>
+            <sample lastIntervalAvgValue="79.74994959058522" lowerBound="77.6837458273534" meanValue="80.18544739216807" simulationTime="429.1137640101194" upperBound="82.85363846337448"/>
+            <sample lastIntervalAvgValue="79.931143773188" lowerBound="78.6004830161536" meanValue="79.9299953718129" simulationTime="443.67629802443247" upperBound="81.30525849490118"/>
+        </measure>
+        <measure alpha="0.99" analyzedSamples="0" discardedSamples="0" finalValue="0.0" name="Analysing_High_Throughput" nodeType="station" precision="0.03" referenceClass="High" referenceStation="Analysing" state="3" type="5">
+            <sample lastIntervalAvgValue="Infinity" meanValue="0.0" simulationTime="0.0"/>
+            <sample lastIntervalAvgValue="Infinity" meanValue="0.0" simulationTime="0.0"/>
+            <sample lastIntervalAvgValue="Infinity" meanValue="0.0" simulationTime="0.0"/>
+            <sample lastIntervalAvgValue="Infinity" meanValue="0.0" simulationTime="0.0"/>
+            <sample lastIntervalAvgValue="Infinity" meanValue="0.0" simulationTime="0.0"/>
+            <sample lastIntervalAvgValue="Infinity" meanValue="0.0" simulationTime="0.0"/>
+            <sample lastIntervalAvgValue="Infinity" meanValue="0.0" simulationTime="0.0"/>
+            <sample lastIntervalAvgValue="Infinity" meanValue="0.0" simulationTime="0.0"/>
+            <sample lastIntervalAvgValue="Infinity" meanValue="0.0" simulationTime="0.0"/>
+            <sample lastIntervalAvgValue="0.0" meanValue="0.0" simulationTime="0.0"/>
+        </measure>
+        <measure alpha="0.99" analyzedSamples="7040" discardedSamples="1630" finalValue="4.163343298478446" name="Helper_Token_Response Time" nodeType="station" precision="0.03" referenceClass="Token" referenceStation="Helper" state="1" type="2">
+            <sample lastIntervalAvgValue="4.2361359460214665" meanValue="4.2361359460214665" simulationTime="84.72271892042933"/>
+            <sample lastIntervalAvgValue="4.1515659731692445" meanValue="4.179755964119986" simulationTime="250.78535784719912"/>
+            <sample lastIntervalAvgValue="4.182621849429249" meanValue="4.180936034541447" simulationTime="426.45547552322756"/>
+            <sample lastIntervalAvgValue="4.18135379883514" meanValue="4.181059923263025" simulationTime="606.2536888731386"/>
+            <sample lastIntervalAvgValue="4.153791146113146" meanValue="4.174935385079629" simulationTime="780.7129170098907"/>
+            <sample lastIntervalAvgValue="4.168866319114013" meanValue="4.173800733616493" simulationTime="959.9741687317933"/>
+            <sample lastIntervalAvgValue="4.128440982896065" meanValue="4.166796654461132" simulationTime="1133.368690013428"/>
+            <sample lastIntervalAvgValue="4.191586633552041" meanValue="4.170112511536987" simulationTime="1309.4153286226137"/>
+            <sample lastIntervalAvgValue="4.169822396179884" meanValue="4.170078284444295" simulationTime="1484.547869262169"/>
+            <sample lastIntervalAvgValue="4.141400385047402" meanValue="4.166987683757411" simulationTime="1662.6280858192072"/>
+            <sample lastIntervalAvgValue="4.190077684650776" meanValue="4.169186731461542" simulationTime="1838.6113485745398"/>
+            <sample lastIntervalAvgValue="4.149768862763468" meanValue="4.16749822113997" simulationTime="2012.9016408106054"/>
+            <sample lastIntervalAvgValue="4.178095472843303" meanValue="4.168364536393284" simulationTime="2192.5597461428674"/>
+            <sample lastIntervalAvgValue="4.161142766145605" meanValue="4.167818778712001" simulationTime="2371.4888850871284"/>
+            <sample lastIntervalAvgValue="4.068396631733925" meanValue="4.160833235705371" simulationTime="2546.429940251687"/>
+            <sample lastIntervalAvgValue="4.158979251980608" meanValue="4.160714172530386" simulationTime="2721.1070688348727"/>
+            <sample lastIntervalAvgValue="4.130735591643824" meanValue="4.158905120235508" simulationTime="2894.5979636839133"/>
+            <sample lastIntervalAvgValue="4.186687298808173" meanValue="4.160486219829074" simulationTime="3070.4388302338566"/>
+            <sample lastIntervalAvgValue="4.128348979270646" meanValue="4.158716819900761" simulationTime="3247.9578363424944"/>
+            <sample lastIntervalAvgValue="4.1773089761197" meanValue="4.159665629817159" simulationTime="3423.4048133395218"/>
+            <sample lastIntervalAvgValue="4.116034127453391" meanValue="4.157547106002965" simulationTime="3596.278246692564"/>
+            <sample lastIntervalAvgValue="4.157164090277428" meanValue="4.1575293698833695" simulationTime="3770.879138484216"/>
+            <sample lastIntervalAvgValue="4.166697132674128" meanValue="4.157925865953434" simulationTime="3941.7137209238554"/>
+            <sample lastIntervalAvgValue="4.171186147319827" meanValue="4.1585012363860825" simulationTime="4121.074725258608"/>
+            <sample lastIntervalAvgValue="4.181024799803953" meanValue="4.159396067878459" simulationTime="4292.49674205057"/>
+            <sample lastIntervalAvgValue="4.184080934682892" meanValue="4.160361397865225" simulationTime="4468.2281413072515"/>
+            <sample lastIntervalAvgValue="4.1568422776660485" meanValue="4.160238086375766" simulationTime="4630.344990136227"/>
+            <sample lastIntervalAvgValue="4.110218128151157" meanValue="4.158460947478704" simulationTime="4798.863933390425"/>
+            <sample lastIntervalAvgValue="4.135070962260149" meanValue="4.1576584458938" simulationTime="4968.401842843091"/>
+            <sample lastIntervalAvgValue="4.133985393260879" meanValue="4.156854672077646" simulationTime="5142.029229360048"/>
+            <sample lastIntervalAvgValue="4.134203054072086" meanValue="4.156110834738917" simulationTime="5315.665757631075"/>
+            <sample lastIntervalAvgValue="4.102777118580179" meanValue="4.154454257191563" simulationTime="5483.879619492863"/>
+            <sample lastIntervalAvgValue="4.168848843994813" meanValue="4.154898143128227" simulationTime="5658.971270940645"/>
+            <sample lastIntervalAvgValue="4.179796189267468" meanValue="4.155660147387293" simulationTime="5838.702507079146"/>
+            <sample lastIntervalAvgValue="4.1794134954149005" meanValue="4.1563496018566495" simulationTime="6014.237873886572"/>
+            <sample lastIntervalAvgValue="4.150248957737902" meanValue="4.156177521901655" simulationTime="6188.548330111564"/>
+            <sample lastIntervalAvgValue="4.1381038597437945" meanValue="4.155681706218682" simulationTime="6362.348692220803"/>
+            <sample lastIntervalAvgValue="4.171899876793694" meanValue="4.156114740652344" simulationTime="6537.568487046138"/>
+            <sample lastIntervalAvgValue="4.078084358028155" meanValue="4.154085467543852" simulationTime="6708.848030083321"/>
+            <sample lastIntervalAvgValue="4.159833659459699" meanValue="4.154231167037192" simulationTime="6883.561043780628"/>
+            <sample lastIntervalAvgValue="4.1812484996871495" meanValue="4.154883529015195" simulationTime="7054.992232267801"/>
+            <sample lastIntervalAvgValue="4.126090131282364" meanValue="4.154188515966472" simulationTime="7228.2880177816605"/>
+            <sample lastIntervalAvgValue="4.147699647379167" meanValue="4.154035579669801" simulationTime="7402.491402971586"/>
+            <sample lastIntervalAvgValue="4.125203326326046" meanValue="4.153356244385537" simulationTime="7579.875146003606"/>
+            <sample lastIntervalAvgValue="4.15305046385631" meanValue="4.153349365551993" simulationTime="7754.303265485571"/>
+            <sample lastIntervalAvgValue="4.167586927598825" meanValue="4.153669897053571" simulationTime="7933.50950337232"/>
+            <sample lastIntervalAvgValue="4.140392161961873" meanValue="4.153384208081311" simulationTime="8107.405974174719"/>
+            <sample lastIntervalAvgValue="4.160202058814884" meanValue="4.1535278137637635" simulationTime="8282.134460644944"/>
+            <sample lastIntervalAvgValue="4.152366038520463" meanValue="4.1535044069898195" simulationTime="8452.381468224283"/>
+            <sample lastIntervalAvgValue="4.144730676179035" meanValue="4.153331130032574" simulationTime="8622.315425947623"/>
+            <sample lastIntervalAvgValue="4.123690210747621" meanValue="4.152757073494698" simulationTime="8791.386724588276"/>
+            <sample lastIntervalAvgValue="4.145477947234149" meanValue="4.152612164962659" simulationTime="8969.642276319344"/>
+            <sample lastIntervalAvgValue="4.185428538146836" meanValue="4.153238090336744" simulationTime="9145.430274921511"/>
+            <sample lastIntervalAvgValue="4.18908964808166" meanValue="4.153909108797211" simulationTime="9321.372040140941"/>
+            <sample lastIntervalAvgValue="4.148544076296492" meanValue="4.153810538646279" simulationTime="9495.610891345394"/>
+            <sample lastIntervalAvgValue="4.1865483151050285" meanValue="4.154401168633937" simulationTime="9671.445920579805"/>
+            <sample lastIntervalAvgValue="4.202829025735636" meanValue="4.155259383823081" simulationTime="9847.964739660702"/>
+            <sample lastIntervalAvgValue="4.146558276916209" meanValue="4.155104328871984" simulationTime="10026.266745568098"/>
+            <sample lastIntervalAvgValue="4.171102046383715" meanValue="4.1553844192030125" simulationTime="10205.624133562598"/>
+            <sample lastIntervalAvgValue="4.175282372302674" meanValue="4.155718972457691" simulationTime="10380.98599319931"/>
+            <sample lastIntervalAvgValue="4.193799643152271" meanValue="4.156348652839254" simulationTime="10557.125578211706"/>
+            <sample lastIntervalAvgValue="4.161006831686315" meanValue="4.156424424919648" simulationTime="10731.887865142531"/>
+            <sample lastIntervalAvgValue="4.203198433080827" meanValue="4.157190627720002" simulationTime="10912.625397765007"/>
+            <sample lastIntervalAvgValue="4.159144900605714" meanValue="4.157221403670959" simulationTime="11087.309483590447"/>
+            <sample lastIntervalAvgValue="4.150589737324091" meanValue="4.157118587138449" simulationTime="11261.634252558059"/>
+            <sample lastIntervalAvgValue="4.166804671057132" meanValue="4.157266466282246" simulationTime="11436.640048742458"/>
+            <sample lastIntervalAvgValue="4.153277916609473" meanValue="4.157205082017418" simulationTime="11615.230999156665"/>
+            <sample lastIntervalAvgValue="4.156575181480808" meanValue="4.157195753448117" simulationTime="11789.80715677886"/>
+            <sample lastIntervalAvgValue="4.179763604204582" meanValue="4.1575328210349625" simulationTime="11969.536991759656"/>
+            <sample lastIntervalAvgValue="4.150738498213878" meanValue="4.157439716234399" simulationTime="12135.566531688211"/>
+            <sample lastIntervalAvgValue="4.14141333554945" meanValue="4.157207057770708" simulationTime="12313.647305116838"/>
+            <sample lastIntervalAvgValue="4.158172621489203" meanValue="4.157220557662911" simulationTime="12488.290555219384"/>
+            <sample lastIntervalAvgValue="4.119844143499704" meanValue="4.156717295600286" simulationTime="12657.204165102872"/>
+            <sample lastIntervalAvgValue="4.161742280678164" meanValue="4.1567824493776335" simulationTime="12823.673856329999"/>
+            <sample lastIntervalAvgValue="4.165134745853543" meanValue="4.156891996452333" simulationTime="12994.444380909994"/>
+            <sample lastIntervalAvgValue="4.128107199642794" meanValue="4.156519348309235" simulationTime="13163.696776095348"/>
+            <sample lastIntervalAvgValue="4.194974178538749" meanValue="4.157022652413206" simulationTime="13339.885691593976"/>
+            <sample lastIntervalAvgValue="4.098369526935257" meanValue="4.156247103706086" simulationTime="13516.115581252192"/>
+            <sample lastIntervalAvgValue="4.129329875591533" meanValue="4.155903896790235" simulationTime="13689.547436027036"/>
+            <sample lastIntervalAvgValue="4.146563680248316" meanValue="4.155786304135931" simulationTime="13863.703110597466"/>
+            <sample lastIntervalAvgValue="4.150502774307737" meanValue="4.15572061193558" simulationTime="14038.02422711839"/>
+            <sample lastIntervalAvgValue="4.133544286958431" meanValue="4.15546108794521" simulationTime="14203.365998596728"/>
+            <sample lastIntervalAvgValue="4.224963679758254" meanValue="4.156304761025021" simulationTime="14380.814473146575"/>
+            <sample lastIntervalAvgValue="4.222430215047741" meanValue="4.1570791522318" simulationTime="14553.934111963532"/>
+            <sample lastIntervalAvgValue="4.172457944608617" meanValue="4.157261457983938" simulationTime="14729.177345637094"/>
+            <sample lastIntervalAvgValue="4.190869017296126" meanValue="4.157645919460445" simulationTime="14901.002975346235"/>
+            <sample lastIntervalAvgValue="4.137207486205647" meanValue="4.157414753732597" simulationTime="15070.628482280667"/>
+            <sample lastIntervalAvgValue="4.184596394806158" meanValue="4.157711415572418" simulationTime="15238.012338072913"/>
+            <sample lastIntervalAvgValue="4.160929521837567" meanValue="4.157748734496205" simulationTime="15416.932307511928"/>
+            <sample lastIntervalAvgValue="4.112382003029433" meanValue="4.157240627103778" simulationTime="15589.652351639164"/>
+            <sample lastIntervalAvgValue="4.120837923162981" meanValue="4.156827941559497" simulationTime="15766.848382335173"/>
+            <sample lastIntervalAvgValue="4.205823993296417" meanValue="4.1573392491695875" simulationTime="15935.08134206703"/>
+            <sample lastIntervalAvgValue="4.196261927033014" meanValue="4.157761120774817" simulationTime="16111.324343002416"/>
+            <sample lastIntervalAvgValue="4.162354508312221" meanValue="4.157810373334574" simulationTime="16286.14323235153"/>
+            <sample lastIntervalAvgValue="4.153521658521132" meanValue="4.15776380395655" simulationTime="16464.744663667938"/>
+            <sample lastIntervalAvgValue="4.175076366307275" meanValue="4.157945495015703" simulationTime="16640.097871052843"/>
+            <sample lastIntervalAvgValue="4.136330114638546" meanValue="4.157715714705143" simulationTime="16817.9600659823"/>
+            <sample lastIntervalAvgValue="4.228224623712967" meanValue="4.158457369080714" simulationTime="16999.77372480196"/>
+            <sample lastIntervalAvgValue="4.185650508218143" meanValue="4.158740425237313" simulationTime="17179.75669665534"/>
+            <sample lastIntervalAvgValue="4.197069815693838" meanValue="4.159126199116818" simulationTime="17356.03362891448"/>
+            <sample lastIntervalAvgValue="4.178544595660891" meanValue="4.159319692036118" simulationTime="17531.532501932237"/>
+            <sample lastIntervalAvgValue="4.146417848746899" meanValue="4.1591894009930375" simulationTime="17709.828469428354"/>
+            <sample lastIntervalAvgValue="4.106460271317568" meanValue="4.158686517923325" simulationTime="17878.193340552374"/>
+            <sample lastIntervalAvgValue="4.162434130402246" meanValue="4.158722776786286" simulationTime="18053.01557402927"/>
+            <sample lastIntervalAvgValue="4.163697055090616" meanValue="4.158767068305434" simulationTime="18215.399759177802"/>
+            <sample lastIntervalAvgValue="4.173783734437339" meanValue="4.158909696070595" simulationTime="18390.69867602417"/>
+            <sample lastIntervalAvgValue="4.185994387410468" meanValue="4.159170534083499" simulationTime="18570.69643468282"/>
+            <sample lastIntervalAvgValue="4.180860793021912" meanValue="4.159372662078931" simulationTime="18746.29258798974"/>
+            <sample lastIntervalAvgValue="4.174868737696586" meanValue="4.159519108507845" simulationTime="18925.811943710694"/>
+            <sample lastIntervalAvgValue="4.216556073037409" meanValue="4.160053092717462" simulationTime="19107.123854851303"/>
+            <sample lastIntervalAvgValue="4.140489400903472" meanValue="4.159871634833942" simulationTime="19285.164899090152"/>
+            <sample lastIntervalAvgValue="4.1543059059513325" meanValue="4.159821664630207" simulationTime="19459.645747140108"/>
+            <sample lastIntervalAvgValue="4.175041030587969" meanValue="4.159953894764614" simulationTime="19630.822429394215"/>
+            <sample lastIntervalAvgValue="4.148952367244246" meanValue="4.1598568428520215" simulationTime="19805.078428818473"/>
+            <sample lastIntervalAvgValue="4.186870871672338" meanValue="4.160098642027557" simulationTime="19985.113876300384"/>
+            <sample lastIntervalAvgValue="4.1476372917216695" meanValue="4.159990640229611" simulationTime="20159.314642552694"/>
+            <sample lastIntervalAvgValue="4.159380741746818" meanValue="4.159985399694365" simulationTime="20334.00863370606"/>
+            <sample lastIntervalAvgValue="4.2260265070122145" meanValue="4.1605480217039705" simulationTime="20511.501747000573"/>
+            <sample lastIntervalAvgValue="4.128195837870556" meanValue="4.160268282330385" simulationTime="20689.014168029007"/>
+            <sample lastIntervalAvgValue="4.19977299309574" meanValue="4.160599129359727" simulationTime="20865.40463373903"/>
+            <sample lastIntervalAvgValue="4.179196431925187" meanValue="4.160753585896754" simulationTime="21040.930883879886"/>
+            <sample lastIntervalAvgValue="4.190018703901712" meanValue="4.160994640016426" simulationTime="21216.911669443758"/>
+            <sample lastIntervalAvgValue="4.194115292747093" meanValue="4.161265223057603" simulationTime="21393.064511739136"/>
+            <sample lastIntervalAvgValue="4.126115580748038" meanValue="4.1609803909184935" simulationTime="21566.361366130554"/>
+            <sample lastIntervalAvgValue="4.191998944243434" meanValue="4.161235614376774" simulationTime="21746.61732073302"/>
+            <sample lastIntervalAvgValue="4.176142081883189" meanValue="4.161354458650743" simulationTime="21922.015288172115"/>
+            <sample lastIntervalAvgValue="4.135034429048019" meanValue="4.161151196037499" simulationTime="22091.551699763084"/>
+            <sample lastIntervalAvgValue="4.136165424651259" meanValue="4.1609504508638055" simulationTime="22269.406813023088"/>
+            <sample lastIntervalAvgValue="4.153126599718668" meanValue="4.160889530999494" simulationTime="22443.838130211272"/>
+            <sample lastIntervalAvgValue="4.170531551986642" meanValue="4.1609640278503885" simulationTime="22619.00045539471"/>
+            <sample lastIntervalAvgValue="4.1708311451379165" meanValue="4.161039679352045" simulationTime="22794.175363490504"/>
+            <sample lastIntervalAvgValue="4.133062715139436" meanValue="4.16082178232956" simulationTime="22971.8970602415"/>
+            <sample lastIntervalAvgValue="4.187562494392086" meanValue="4.161009352072444" simulationTime="23135.21199752279"/>
+            <sample lastIntervalAvgValue="4.107987435370178" meanValue="4.160621225204958" simulationTime="23303.639482372968"/>
+            <sample lastIntervalAvgValue="4.175009916622176" meanValue="4.16072831807037" simulationTime="23478.9898988711"/>
+            <sample lastIntervalAvgValue="4.143396601993118" meanValue="4.160606328163087" simulationTime="23644.725762950824"/>
+            <sample lastIntervalAvgValue="4.207651265008151" meanValue="4.160951461324221" simulationTime="23821.447116081166"/>
+            <sample lastIntervalAvgValue="4.16384373365615" meanValue="4.160972027256515" simulationTime="23992.16470916107"/>
+            <sample lastIntervalAvgValue="4.151816188889695" meanValue="4.160905817681549" simulationTime="24166.540989094436"/>
+            <sample lastIntervalAvgValue="4.125957417009496" meanValue="4.160654906086981" simulationTime="24339.831200608834"/>
+            <sample lastIntervalAvgValue="4.167314921108949" meanValue="4.160702380735813" simulationTime="24514.85842729541"/>
+            <sample lastIntervalAvgValue="4.201840385718935" meanValue="4.160993549628515" simulationTime="24691.335723495606"/>
+            <sample lastIntervalAvgValue="4.178446554540296" meanValue="4.161116211309621" simulationTime="24866.830478786298"/>
+            <sample lastIntervalAvgValue="4.188498783056882" meanValue="4.161307315997788" simulationTime="25042.747427674687"/>
+            <sample lastIntervalAvgValue="4.157737158356213" meanValue="4.1612837428208875" simulationTime="25209.056914008936"/>
+            <sample lastIntervalAvgValue="4.13835121084279" meanValue="4.1611295808580895" simulationTime="25378.72931365349"/>
+            <sample lastIntervalAvgValue="4.1602112383484275" meanValue="4.161123448603546" simulationTime="25549.297974425775"/>
+            <sample lastIntervalAvgValue="4.1511318495138765" meanValue="4.161058778059277" simulationTime="25715.34324840633"/>
+            <sample lastIntervalAvgValue="4.135118414627292" meanValue="4.16088781601126" simulationTime="25884.88310340605"/>
+            <sample lastIntervalAvgValue="4.161004985157265" meanValue="4.160888527375303" simulationTime="26043.001292842026"/>
+            <sample lastIntervalAvgValue="4.164124612632139" meanValue="4.160909587612689" simulationTime="26213.730401959943"/>
+            <sample lastIntervalAvgValue="4.160150445786712" meanValue="4.160904679110109" simulationTime="26384.2965702372"/>
+            <sample lastIntervalAvgValue="4.163107048622642" meanValue="4.160918141870452" simulationTime="26546.65774513348"/>
+            <sample lastIntervalAvgValue="4.204727880053075" meanValue="4.161204658376785" simulationTime="26723.25631609571"/>
+            <sample lastIntervalAvgValue="4.16959158705166" meanValue="4.161259152653447" simulationTime="26898.37916275188"/>
+            <sample lastIntervalAvgValue="4.142500188662891" meanValue="4.161140917830447" simulationTime="27068.22167048706"/>
+            <sample lastIntervalAvgValue="4.126548044874209" meanValue="4.160924249973557" simulationTime="27237.4101403269"/>
+            <sample lastIntervalAvgValue="4.1708033143071725" meanValue="4.160985741037422" simulationTime="27408.413076213496"/>
+            <sample lastIntervalAvgValue="4.1582067758201795" meanValue="4.160968134077228" simulationTime="27583.057760797943"/>
+            <sample lastIntervalAvgValue="4.174740632421423" meanValue="4.161054844455051" simulationTime="27758.396867359643"/>
+            <sample lastIntervalAvgValue="4.150659940384663" meanValue="4.16099134757381" simulationTime="27928.573924915414"/>
+            <sample lastIntervalAvgValue="4.132348636301641" meanValue="4.160817446913043" simulationTime="28098.00021900378"/>
+            <sample lastIntervalAvgValue="4.166002395616964" meanValue="4.160849495161103" simulationTime="28272.972319619694"/>
+            <sample lastIntervalAvgValue="4.128586572499111" meanValue="4.160655993138115" simulationTime="28442.244369092157"/>
+            <sample lastIntervalAvgValue="4.144868579792518" meanValue="4.160561870127039" simulationTime="28612.18398086365"/>
+            <sample lastIntervalAvgValue="4.1627940469883296" meanValue="4.160575419979356" simulationTime="28787.02133083716"/>
+            <sample lastIntervalAvgValue="4.132424365624285" meanValue="4.1604055673313285" simulationTime="28960.58315419338"/>
+            <sample lastIntervalAvgValue="4.1489593323368315" meanValue="4.160336919341929" simulationTime="29134.839446151527"/>
+            <sample lastIntervalAvgValue="4.155336420808626" meanValue="4.160307107995101" simulationTime="29309.36357582549"/>
+            <sample lastIntervalAvgValue="4.1848037030595595" meanValue="4.160448846690789" simulationTime="29480.94052765093"/>
+            <sample lastIntervalAvgValue="4.177188811225625" meanValue="4.160547482845455" simulationTime="29656.382457722408"/>
+            <sample lastIntervalAvgValue="4.142801358280156" meanValue="4.160443530651349" simulationTime="29830.380114770174"/>
+            <sample lastIntervalAvgValue="4.155032221953528" meanValue="4.160412763260334" simulationTime="30000.73643587027"/>
+            <sample lastIntervalAvgValue="4.167936592150719" meanValue="4.1604573627423145" simulationTime="30179.95770933275"/>
+            <sample lastIntervalAvgValue="4.140078766781676" meanValue="4.1603428291666615" simulationTime="30349.7009387708"/>
+            <sample lastIntervalAvgValue="4.151329954277008" meanValue="4.16029123577081" simulationTime="30524.056796850433"/>
+            <sample lastIntervalAvgValue="4.223238472249937" meanValue="4.160641037437338" simulationTime="30697.20957421268"/>
+            <sample lastIntervalAvgValue="4.177993912562203" meanValue="4.160732282162951" simulationTime="30860.151336802606"/>
+            <sample lastIntervalAvgValue="4.160841010116894" meanValue="4.160732894386314" simulationTime="31034.906659227516"/>
+            <sample lastIntervalAvgValue="4.200155616674602" meanValue="4.160943176942859" simulationTime="31202.9128838945"/>
+            <sample lastIntervalAvgValue="4.1411022650793585" meanValue="4.160832671930491" simulationTime="31376.839179027833"/>
+            <sample lastIntervalAvgValue="4.164143439345136" meanValue="4.160850575051567" simulationTime="31547.569060040983"/>
+            <sample lastIntervalAvgValue="4.182040384198733" meanValue="4.160964543590861" simulationTime="31719.03271579313"/>
+            <sample lastIntervalAvgValue="4.148257057185263" meanValue="4.160894913528364" simulationTime="31893.259512194913"/>
+            <sample lastIntervalAvgValue="4.173297974638574" meanValue="4.160962505142044" simulationTime="32068.538027129733"/>
+            <sample lastIntervalAvgValue="4.133821848006673" meanValue="4.160815401309332" simulationTime="32242.158544746013"/>
+            <sample lastIntervalAvgValue="4.164253552437426" meanValue="4.160834374679264" simulationTime="32421.221447500822"/>
+            <sample lastIntervalAvgValue="4.1812891652067306" meanValue="4.160946634537934" simulationTime="32601.01688160471"/>
+            <sample lastIntervalAvgValue="4.162535344636906" meanValue="4.160955105507105" simulationTime="32775.84336607946"/>
+            <sample lastIntervalAvgValue="4.147989308723135" meanValue="4.160886338811192" simulationTime="32950.05891704583"/>
+            <sample lastIntervalAvgValue="4.153658682444075" meanValue="4.1608491109329195" simulationTime="33120.35892302604"/>
+            <sample lastIntervalAvgValue="4.195480680761315" meanValue="4.161026575545214" simulationTime="33292.373630937254"/>
+            <sample lastIntervalAvgValue="4.164269526016142" meanValue="4.161043108866441" simulationTime="33463.108681503916"/>
+            <sample lastIntervalAvgValue="4.1947106099149805" meanValue="4.161213883027394" simulationTime="33635.09181651043"/>
+            <sample lastIntervalAvgValue="4.19499112513095" meanValue="4.163122339018274" simulationTime="33815.47643489106"/>
+            <sample lastIntervalAvgValue="4.161401250191418" meanValue="4.163122339018274" simulationTime="33990.2552873991"/>
+            <sample lastIntervalAvgValue="4.158484238645455" meanValue="4.163122339018274" simulationTime="34164.91162542221"/>
+            <sample lastIntervalAvgValue="4.18460624097861" meanValue="4.163122339018274" simulationTime="34340.66508754331"/>
+            <sample lastIntervalAvgValue="4.161228368327479" meanValue="4.163122339018274" simulationTime="34511.27545064474"/>
+            <sample lastIntervalAvgValue="4.182591562700087" meanValue="4.163122339018274" simulationTime="34682.76170471544"/>
+            <sample lastIntervalAvgValue="4.14129588444236" meanValue="4.163122339018274" simulationTime="34852.55483597758"/>
+            <sample lastIntervalAvgValue="4.1208795349490925" meanValue="4.163122339018274" simulationTime="35021.51089691049"/>
+            <sample lastIntervalAvgValue="4.180061044069944" meanValue="4.163122339018274" simulationTime="35192.89339971736"/>
+            <sample lastIntervalAvgValue="4.180697716857738" meanValue="4.163122339018274" simulationTime="35364.302006108526"/>
+            <sample lastIntervalAvgValue="4.156980982453596" meanValue="4.163122339018274" simulationTime="35538.89520737158"/>
+            <sample lastIntervalAvgValue="4.183627692959168" meanValue="4.163122339018274" simulationTime="35714.60757047586"/>
+            <sample lastIntervalAvgValue="4.1560617370962785" meanValue="4.163122339018274" simulationTime="35893.318225171"/>
+            <sample lastIntervalAvgValue="4.185878768757815" meanValue="4.163122339018274" simulationTime="36069.12513345883"/>
+            <sample lastIntervalAvgValue="4.144261652739563" lowerBound="4.0424259536693405" meanValue="4.163343298478446" simulationTime="36081.55791841705" upperBound="4.284260643287551"/>
+        </measure>
+    </results>
+</archive>
