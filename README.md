@@ -25,7 +25,7 @@ A case study in the domain of a collaborative and autonomous network of sensors 
 	- <tt>runMUTUAL.py</tt>, the file orchestrating all modules. Please, run <tt>python3 runModules.py \<output\_file\></tt> to test our *MUTUAL* implementation.
 - <tt>QPN\_simulation/</tt> contains the QPN (<tt>integrated.jsimg</tt>) to simulate using the *Java Modelling Tools* and data (<tt>sim\_results.ods</tt>) collected from our simulation.
 - <tt>results/</tt> contains data generated from *MUTUAL*. The name of files containing results follows the pattern: <tt>results\<ID\>\_\<config\></tt>, where:
-	- \<ID\> goes from 7 to 10 and represents the module deplyment. Specifically:
+	- \<ID\> goes from 7 to 10 and represents the module deployment. Specifically:
 		- 7 = Linear + MVA + W/O
 		- 8 = KiBaM + MVA + W/O
 		- 9 = KiBaM + AMVA + W/O
