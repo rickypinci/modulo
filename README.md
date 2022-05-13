@@ -24,8 +24,13 @@ A case study in the domain of a collaborative and autonomous network of sensors 
 	- <tt>profiles.py</tt>, this file contains all system configurations (as reported in Table 2 of the paper). Please, change this file to test our *MUTUAL* implementation with different configurations.
 	- <tt>runMUTUAL.py</tt>, the file orchestrating all modules. Please, run <tt>python3 runModules.py \<output\_file\></tt> to test our *MUTUAL* implementation.
 - <tt>QPN\_simulation/</tt> contains the QPN (<tt>integrated.jsimg</tt>) to simulate using the *Java Modelling Tools* and data (<tt>sim\_results.ods</tt>) collected from our simulation.
-- <tt>results/</tt> contains data generated from *MUTUAL*.
-	- filename strucuture TODO
+- <tt>results/</tt> contains data generated from *MUTUAL*. The name of files containing results follows the pattern: <tt>results\<ID\>\_\<config\></tt>, where:
+	- \<ID\> goes from 7 to 10 and represents the module deplyment. Specifically:
+		- 7 = Linear + MVA + W/O
+		- 8 = KiBaM + MVA + W/O
+		- 9 = KiBaM + AMVA + W/O
+		- 10 = KiBaM + AMVA + W/
+	- \<config\> is the chosen configuration. It is *mix* if the number of customers and cores varies with the battery state of charge, it is *fix\_\<N1\>\_\<N2\>* if the system state is fixed at the beginning of the analysis, with the number of low- and high-quality requests set to *N1* and *N2*, respectively.
 
 
 ## Requirements
@@ -36,4 +41,11 @@ A case study in the domain of a collaborative and autonomous network of sensors 
 
 
 ## Run *MUTUAL*
-1) To run our *MUTUAL* implementation, please run <tt>python3 runMUTUAL.py \<output\_file\></tt>. Currently, KiBaM, Approximate MVA, and Reward With Penalty are the models/solutions used for the three modules. Input parameters are those presented in Table 1 of the paper. <tt>output_file</tt> must be a CSV file where *MUTUAL* saves generated data.
+- To run our *MUTUAL* implementation, please run <tt>python3 runMUTUAL.py \<output\_file\></tt>. Currently, KiBaM, Approximate MVA, and Reward With Penalty are the models/solutions used for the three modules. Input parameters are those presented in Table 1 of the paper. <tt>\<output\_file\></tt> must be a CSV file where *MUTUAL* saves generated data.
+- To test different models (among those already implemented, i.e., Linear Battery, MVA, or Reward Without Penalty) open the <tt>runMUTUAL.py</tt> file. Here, (un)comment lines 103-104 (*System Perfomance* module), 114-115 (*Battery Depletion* module), and 123-124 (*Reward Computation* module).
+- To deploy an existing module with a new model, add the new model in the relative file (<tt>module\_battery.py</tt>, <tt>module\_performance.py</tt>, or <tt>module\_reward.py</tt> as described in the [Available Files](#available-files) section of this README).
+- To add a new module to our *MUTUAL* implementation:
+	1) Create the new module (e.g., <tt>module\_new.py</tt>).
+	2) Open the <tt>runMUTUAL.py</tt> file and import the new module with <tt>from module\_new.py import \*</tt>.
+	3) Implement the new system logic by adding the new module to the *While* loop (lines 94-135) so that it can interact with other modules.
+	4) If needed, you can add new input parameters in <tt>params.py</tt>.
