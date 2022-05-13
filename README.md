@@ -30,7 +30,7 @@ A case study in the domain of a collaborative and autonomous network of sensors 
 		- 8 = KiBaM + MVA + W/O
 		- 9 = KiBaM + AMVA + W/O
 		- 10 = KiBaM + AMVA + W/
-	- \<config\> is the chosen configuration. It is *mix* if the number of customers and cores varies with the battery state of charge, it is *fix\_\<N1\>\_\<N2\>* if the system state is fixed at the beginning of the analysis, with the number of low- and high-quality requests set to *N1* and *N2*, respectively.
+	- \<config\> is the chosen configuration. It is <tt>mix</tt> if the number of customers and cores varies with the battery state of charge, it is <tt>fix\_\<N1\>\_\<N2\></tt> if the system state is fixed at the beginning of the analysis, with the number of low- and high-quality requests set to *N1* and *N2*, respectively.
 
 
 ## Requirements
