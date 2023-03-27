@@ -1,4 +1,4 @@
-# Modular Extra-functional Analysis of Software Architectural Design Models
+# Replication Package: Modular Quality-of-Service Analysis of Software Design Models for Cyber-Physical Systems
 
 This is the replication package of the paper titled "Modular Quality-of-Service Analysis of Software Design Models for Cyber-Physical Systems" accepted for publication in CAiSE 2023.
 
