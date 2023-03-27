@@ -4,8 +4,8 @@ This is the replication package of the paper titled "Modular Quality-of-Service 
 
 
 ## Authors
-Riccardo Pinciroli - Gran Sasso Science Institute, Italy
-Raffaela Mirandola - Politecnico di Milano, Italy
+Riccardo Pinciroli - Gran Sasso Science Institute, Italy </br>
+Raffaela Mirandola - Politecnico di Milano, Italy </br>
 Catia Trubiani - Gran Sasso Science Institute, Italy
 
 ## Abstract
