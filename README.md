@@ -1,7 +1,8 @@
 # Replication Package: Modular Quality-of-Service Analysis of Software Design Models for Cyber-Physical Systems
 
-This is the replication package of the paper titled "Modular Quality-of-Service Analysis of Software Design Models for Cyber-Physical Systems" accepted for publication in the 35th International Conference on Advanced Information Systems Engineering (CAiSE 2023).
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.7773975.svg)](https://doi.org/10.5281/zenodo.7773975)
+
+This is the replication package of the paper titled "Modular Quality-of-Service Analysis of Software Design Models for Cyber-Physical Systems" accepted for publication in the 35th International Conference on Advanced Information Systems Engineering (CAiSE 2023).
 
 
 
