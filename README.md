@@ -1,6 +1,9 @@
 # Replication Package: Modular Quality-of-Service Analysis of Software Design Models for Cyber-Physical Systems
 
 This is the replication package of the paper titled "Modular Quality-of-Service Analysis of Software Design Models for Cyber-Physical Systems" accepted for publication in CAiSE 2023.
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.7773975.svg)](https://doi.org/10.5281/zenodo.7773975)
+
+
 
 
 ## Authors
@@ -10,7 +13,7 @@ Catia Trubiani - Gran Sasso Science Institute, Italy
 
 ## Abstract
 Emerging applications such as collaborative and autonomous cyber-physical systems (CPS) seek for innovative techniques that support Quality-of-Service (QoS) analysis as key concern to be considered.
-The objective of this paper is to complement the software design models with an approach that provides a set of \emph{modules} that are (i) representative of multiple QoS-based properties, and (ii) equipped with strategies aimed to establish rules of interaction among them in a feedback loop fashion.
+The objective of this paper is to complement the software design models with an approach that provides a set of modules that are (i) representative of multiple QoS-based properties, and (ii) equipped with strategies aimed to establish rules of interaction among them in a feedback loop fashion.
 We propose a novel methodology that builds upon the specification of QoS-based modules and enables the generation of design alternatives as outcome of an internal intertwining of different QoS analysis results for CPS.
 The approach is applied to a collaborative and autonomous network of sensors, and experimental results show that software designers are supported in the selection of design alternatives by quantitative information. A comparison with an integrated model is performed to show the advantages of our novel modular QoS-based analysis. 
 
